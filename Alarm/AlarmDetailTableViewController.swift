@@ -8,17 +8,39 @@
 
 import UIKit
 
-class AlarmDetailTableViewController: UIViewController {
+class AlarmDetailTableViewController: UITableViewController {
 
     
     //MARK: IBOutlets
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var detailTextField: UITextField!
+    @IBOutlet weak var enableButton: UIButton!
+    
     
     
     
     //MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+	}
+
+    
+    
+    //MARK: IBActions
+    @IBAction func enableButtonTapped(sender: AnyObject) {
     }
+    
+
+    
+    // MARK: - Table view data source
+	override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 0
+    }
+
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+
+
 
 }
