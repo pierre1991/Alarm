@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		8F73146A1D8325460025FD71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7314691D8325460025FD71 /* AppDelegate.swift */; };
-		8F73146C1D8325460025FD71 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F73146B1D8325460025FD71 /* ViewController.swift */; };
 		8F73146F1D8325460025FD71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F73146D1D8325460025FD71 /* Main.storyboard */; };
 		8F7314711D8325460025FD71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F7314701D8325460025FD71 /* Assets.xcassets */; };
 		8F7314741D8325460025FD71 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F7314721D8325460025FD71 /* LaunchScreen.storyboard */; };
 		8F73147F1D8325460025FD71 /* AlarmTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F73147E1D8325460025FD71 /* AlarmTests.swift */; };
 		8F73148A1D8325460025FD71 /* AlarmUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7314891D8325460025FD71 /* AlarmUITests.swift */; };
+		8F763F641D83349000C8BBA4 /* AlarmListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F763F631D83349000C8BBA4 /* AlarmListTableViewController.swift */; };
+		8F763F661D83350300C8BBA4 /* AlarmDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F763F651D83350300C8BBA4 /* AlarmDetailTableViewController.swift */; };
+		8F763F691D8336FA00C8BBA4 /* AlarmTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F763F681D8336FA00C8BBA4 /* AlarmTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +38,6 @@
 /* Begin PBXFileReference section */
 		8F7314661D8325460025FD71 /* Alarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F7314691D8325460025FD71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8F73146B1D8325460025FD71 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8F73146E1D8325460025FD71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8F7314701D8325460025FD71 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8F7314731D8325460025FD71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +48,9 @@
 		8F7314851D8325460025FD71 /* AlarmUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlarmUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F7314891D8325460025FD71 /* AlarmUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmUITests.swift; sourceTree = "<group>"; };
 		8F73148B1D8325460025FD71 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F763F631D83349000C8BBA4 /* AlarmListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmListTableViewController.swift; sourceTree = "<group>"; };
+		8F763F651D83350300C8BBA4 /* AlarmDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmDetailTableViewController.swift; sourceTree = "<group>"; };
+		8F763F681D8336FA00C8BBA4 /* AlarmTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +102,12 @@
 			isa = PBXGroup;
 			children = (
 				8F7314691D8325460025FD71 /* AppDelegate.swift */,
-				8F73146B1D8325460025FD71 /* ViewController.swift */,
 				8F73146D1D8325460025FD71 /* Main.storyboard */,
 				8F7314701D8325460025FD71 /* Assets.xcassets */,
 				8F7314721D8325460025FD71 /* LaunchScreen.storyboard */,
 				8F7314751D8325460025FD71 /* Info.plist */,
+				8F763F671D8336E100C8BBA4 /* ViewControllers */,
+				8F763F6A1D83370D00C8BBA4 /* Views */,
 			);
 			path = Alarm;
 			sourceTree = "<group>";
@@ -123,6 +128,23 @@
 				8F73148B1D8325460025FD71 /* Info.plist */,
 			);
 			path = AlarmUITests;
+			sourceTree = "<group>";
+		};
+		8F763F671D8336E100C8BBA4 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8F763F631D83349000C8BBA4 /* AlarmListTableViewController.swift */,
+				8F763F651D83350300C8BBA4 /* AlarmDetailTableViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8F763F6A1D83370D00C8BBA4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8F763F681D8336FA00C8BBA4 /* AlarmTableViewCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,8 +278,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F73146C1D8325460025FD71 /* ViewController.swift in Sources */,
+				8F763F661D83350300C8BBA4 /* AlarmDetailTableViewController.swift in Sources */,
 				8F73146A1D8325460025FD71 /* AppDelegate.swift in Sources */,
+				8F763F641D83349000C8BBA4 /* AlarmListTableViewController.swift in Sources */,
+				8F763F691D8336FA00C8BBA4 /* AlarmTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,6 +506,7 @@
 				8F7314901D8325460025FD71 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8F7314911D8325460025FD71 /* Build configuration list for PBXNativeTarget "AlarmTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +515,7 @@
 				8F7314931D8325460025FD71 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8F7314941D8325460025FD71 /* Build configuration list for PBXNativeTarget "AlarmUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +524,7 @@
 				8F7314961D8325460025FD71 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
