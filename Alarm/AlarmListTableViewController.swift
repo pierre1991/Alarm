@@ -19,6 +19,24 @@ class AlarmListTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        tableView.reloadData()
+    }
+    
+    
+    //MARK: Navigation 
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.destinationViewController == "toDetailView" {
+            let destinationViewController = segue.destinationViewController as! AlarmDetailTableViewController
+
+            guard let indexPath = tableView.indexPathForSelectedRow else {return}
+            let alarm = AlarmController.shareController.alarmArray[indexPath.row]
+            destinationViewController.alarm = alarm
+        }
+    }
 }
 
 
@@ -29,11 +47,12 @@ extension AlarmListTableViewController: UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("alarmCell", forIndexPath: indexPath) as! AlarmTableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("alarmCell", forIndexPath: indexPath) as? AlarmTableViewCell ?? AlarmTableViewCell()
         
         let alarm = AlarmController.shareController.alarmArray[indexPath.row]
         
         cell.updateAlarm(alarm)
+        cell.delegate = self
         
         return cell
     }
@@ -44,5 +63,16 @@ extension AlarmListTableViewController: UITableViewDataSource, UITableViewDelega
             AlarmController.shareController.deleteAlarm(alarm)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
     	}
+    }
+}
+
+
+extension AlarmListTableViewController: SwitchTableViewCellDelegate {
+    
+    func switchValueChanged(cell: AlarmTableViewCell) {
+        guard let indexPath = tableView.indexPathForCell(cell) else {return}
+        let alarm = AlarmController.shareController.alarmArray[indexPath.row]
+        AlarmController.shareController.toggleEnabled(alarm)
+        
     }
 }

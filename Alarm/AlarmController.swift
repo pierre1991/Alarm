@@ -36,4 +36,8 @@ class AlarmController {
         guard let index = alarmArray.indexOf(alarm) else {return}
         alarmArray.removeAtIndex(index)
     }
+    
+    func toggleEnabled(alarm: Alarm) {
+    	alarm.enabled = !alarm.enabled
+    }
 }

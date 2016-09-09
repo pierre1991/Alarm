@@ -17,6 +17,11 @@ class AlarmTableViewCell: UITableViewCell {
     @IBOutlet weak var alarmSwitch: UISwitch!
     
     
+    //MARK: Delegate
+    weak var delegate: SwitchTableViewCellDelegate?
+    
+    
+    
     
     //MARK: Nib Life Cycle
     override func awakeFromNib() {
@@ -31,6 +36,7 @@ class AlarmTableViewCell: UITableViewCell {
     
     //MARK: IBActions
     @IBAction func switchValueChanged(sender: AnyObject) {
+        delegate?.switchValueChanged(self)
     }
     
     

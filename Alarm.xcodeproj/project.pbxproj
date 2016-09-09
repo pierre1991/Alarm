@@ -118,6 +118,7 @@
 				8F763F751D836B8700C8BBA4 /* Controller */,
 				8F763F671D8336E100C8BBA4 /* ViewControllers */,
 				8F763F6A1D83370D00C8BBA4 /* Views */,
+				8F763F781D837B6600C8BBA4 /* Protocol */,
 				8F763F741D836B7900C8BBA4 /* Helper */,
 			);
 			path = Alarm;
@@ -162,7 +163,6 @@
 			isa = PBXGroup;
 			children = (
 				8F763F6D1D8363CC00C8BBA4 /* Alarm.swift */,
-				8F763F761D836CEB00C8BBA4 /* AlarmCellSwitchProtocol.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -181,6 +181,14 @@
 				8F763F711D83688100C8BBA4 /* AlarmController.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		8F763F781D837B6600C8BBA4 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				8F763F761D836CEB00C8BBA4 /* AlarmCellSwitchProtocol.swift */,
+			);
+			name = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +259,7 @@
 				TargetAttributes = {
 					8F7314651D8325460025FD71 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = VXY4XHS49U;
 					};
 					8F7314791D8325460025FD71 = {
 						CreatedOnToolsVersion = 7.3;
@@ -463,6 +472,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Alarm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dev.Pierre.Alarm;
@@ -474,6 +484,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = Alarm/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.dev.Pierre.Alarm;
