@@ -10,13 +10,13 @@ import Foundation
 
 class AlarmController {
     
+    
     //MARK: Singleton
     static let shareController = AlarmController()
     
     
+    //MARK: Properties
     var alarmArray: [Alarm] = []
-    
-    
     
     
     //MARK: Helper Functions
@@ -40,4 +40,15 @@ class AlarmController {
     func toggleEnabled(alarm: Alarm) {
     	alarm.enabled = !alarm.enabled
     }
+    
+    
+    func filePath(key: String) -> String {
+    	let directorySearchResults = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .AllDomainsMask, true)
+        let documentsPath = directorySearchResults[0]
+        let entriesPath = documentsPath.stringByAppendingString("\(key).plist")
+        
+        return entriesPath
+	}
+    
+    
 }

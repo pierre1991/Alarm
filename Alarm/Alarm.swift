@@ -8,7 +8,12 @@
 
 import Foundation
 
-class Alarm: Equatable {
+class Alarm: NSObject, NSCoding {
+    
+    private let kName = "name"
+    private let kFireTimeFromMidnight = "fireTimeFromMidnight"
+    private let kEnabled = "enabled"
+    private let kUuid = "UUID"
     
     var name: String
     var fireTimeFromMidnight: NSTimeInterval
@@ -17,7 +22,6 @@ class Alarm: Equatable {
     
     var fireDate: NSDate? {
         guard let thisMorningAtMidnight = DateHelper.thisMorningAtMidnight else {return nil}
-        
         let fireDateFromThisMorning = NSDate(timeInterval: fireTimeFromMidnight, sinceDate: thisMorningAtMidnight)
         
         return fireDateFromThisMorning
@@ -46,6 +50,24 @@ class Alarm: Equatable {
         self.fireTimeFromMidnight = fireTimeFromMidnight
         self.enabled = enabled
         self.uuid = uuid
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        guard let name = aDecoder.decodeObjectForKey(kName) as? String,
+        	fireTimeFromMidnight = aDecoder.decodeObjectForKey(kFireTimeFromMidnight) as? NSTimeInterval,
+            enabled = aDecoder.decodeObjectForKey(kEnabled) as? Bool,
+            uuid = aDecoder.decodeObjectForKey(kUuid) as? String else {return nil}
+        self.name = name
+        self.fireTimeFromMidnight = fireTimeFromMidnight
+        self.enabled = enabled
+        self.uuid = uuid
+    }
+    
+    func encodeWithCoder(aCoder: NSCoder) {
+    	aCoder.encodeObject(name, forKey: kName)
+        aCoder.encodeObject(fireTimeFromMidnight, forKey: kFireTimeFromMidnight)
+        aCoder.encodeObject(enabled, forKey: kEnabled)
+        aCoder.encodeObject(uuid, forKey: kUuid)
     }
 }
 
