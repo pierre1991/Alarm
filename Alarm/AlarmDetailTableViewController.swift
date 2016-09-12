@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AlarmDetailTableViewController: UITableViewController {
+class AlarmDetailTableViewController: UITableViewController, AlarmScheduler {
 
     
     //MARK: Properties
@@ -19,7 +19,6 @@ class AlarmDetailTableViewController: UITableViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var detailTextField: UITextField!
     @IBOutlet weak var enableButton: UIButton!
-    
     
     
     
@@ -44,9 +43,12 @@ class AlarmDetailTableViewController: UITableViewController {
         
         if let alarm = alarm {
             AlarmController.shareController.updateAlarm(alarm, name: title, fireTimeFromMidnight: timeIntervalSinceMidnight)
+            cancelLocalNotification(alarm)
+            scheduleLocalNotification(alarm)
         } else {
             let alarm = AlarmController.shareController.addAlarm(title, fireTimeFromMidnight: timeIntervalSinceMidnight)
-            self.alarm = alarm 
+            self.alarm = alarm
+            scheduleLocalNotification(alarm)
         }
     	
     	self.navigationController?.popViewControllerAnimated(true)
@@ -54,13 +56,23 @@ class AlarmDetailTableViewController: UITableViewController {
     
     
     @IBAction func enableButtonTapped(sender: AnyObject) {
+        guard let alarm = alarm else {return}
+        
+        AlarmController.shareController.toggleEnabled(alarm)
+        
+        if alarm.enabled {
+            scheduleLocalNotification(alarm)
+        } else {
+            cancelLocalNotification(alarm)
+        }
+        
+        setupView()
     }
     
 
     func updateWithAlarm(alarm: Alarm) {
         guard let thisMorningAtMidnight = DateHelper.thisMorningAtMidnight else {return}
-    
-        datePicker.setDate(NSDate(timeInterval: alarm.fireTimeFromMidnight, sinceDate: thisMorningAtMidnight), animated: false)
+    	datePicker.setDate(NSDate(timeInterval: alarm.fireTimeFromMidnight, sinceDate: thisMorningAtMidnight), animated: false)
         detailTextField.text = alarm.name
         self.title = alarm.name
     }
@@ -73,13 +85,13 @@ class AlarmDetailTableViewController: UITableViewController {
             enableButton.hidden = false
             
             if alarm?.enabled == true {
-            	enableButton.setTitle("Disable", forState: .Normal)
+                enableButton.setTitle("Disable", forState: .Normal)
                 enableButton.setTitleColor(.whiteColor(), forState: .Normal)
                 enableButton.backgroundColor = .redColor()
             } else {
                 enableButton.setTitle("Enable", forState: .Normal)
-                enableButton.setTitleColor(.whiteColor(), forState: .Normal)
-                enableButton.backgroundColor = .greenColor()
+                enableButton.setTitleColor(.blueColor(), forState: .Normal)
+                enableButton.backgroundColor = .grayColor()
             }
         }
     }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AlarmListTableViewController: UIViewController {
+class AlarmListTableViewController: UIViewController, AlarmScheduler {
 
     
     //MARK: IBOutlets
@@ -18,10 +18,12 @@ class AlarmListTableViewController: UIViewController {
 	//MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.tableFooterView = UIView()
     }
     
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
         tableView.reloadData()
     }
@@ -29,12 +31,12 @@ class AlarmListTableViewController: UIViewController {
     
     //MARK: Navigation 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.destinationViewController == "toDetailView" {
-            let destinationViewController = segue.destinationViewController as! AlarmDetailTableViewController
+        let destinationViewController = segue.destinationViewController as? AlarmDetailTableViewController
 
+        if segue.identifier == "toDetailView" {
             guard let indexPath = tableView.indexPathForSelectedRow else {return}
             let alarm = AlarmController.shareController.alarmArray[indexPath.row]
-            destinationViewController.alarm = alarm
+            destinationViewController?.alarm = alarm
         }
     }
 }
@@ -48,7 +50,6 @@ extension AlarmListTableViewController: UITableViewDataSource, UITableViewDelega
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("alarmCell", forIndexPath: indexPath) as? AlarmTableViewCell ?? AlarmTableViewCell()
-        
         let alarm = AlarmController.shareController.alarmArray[indexPath.row]
         
         cell.updateAlarm(alarm)
@@ -61,6 +62,8 @@ extension AlarmListTableViewController: UITableViewDataSource, UITableViewDelega
         if editingStyle == .Delete {
         	let alarm = AlarmController.shareController.alarmArray[indexPath.row]
             AlarmController.shareController.deleteAlarm(alarm)
+            cancelLocalNotification(alarm)
+            
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
     	}
     }
@@ -71,8 +74,16 @@ extension AlarmListTableViewController: SwitchTableViewCellDelegate {
     
     func switchValueChanged(cell: AlarmTableViewCell) {
         guard let indexPath = tableView.indexPathForCell(cell) else {return}
+        
         let alarm = AlarmController.shareController.alarmArray[indexPath.row]
         AlarmController.shareController.toggleEnabled(alarm)
         
+        if alarm.enabled {
+            scheduleLocalNotification(alarm)
+        } else {
+            cancelLocalNotification(alarm)
+        }
+        
+        tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
     }
 }

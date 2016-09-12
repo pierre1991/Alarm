@@ -13,7 +13,7 @@ class Alarm: NSObject, NSCoding {
     private let kName = "name"
     private let kFireTimeFromMidnight = "fireTimeFromMidnight"
     private let kEnabled = "enabled"
-    private let kUuid = "UUID"
+    private let kUUID = "UUID"
     
     var name: String
     var fireTimeFromMidnight: NSTimeInterval
@@ -33,15 +33,15 @@ class Alarm: NSObject, NSCoding {
         let minutes = (fireTimeFromMidnight - (hours*60*60))/60
         
         if hours >= 13 {
-        	return String(format: "%2d:%02d PM", [hours - 12, minutes])
+            return String(format: "%2d:%02d PM", arguments: [hours - 12, minutes])
         } else if hours >= 12 {
-            return String(format: "%2d:%02d PM", [hours, minutes])
+            return String(format: "%2d:%02d PM", arguments: [hours, minutes])
         } else {
             if hours == 0 {
                 hours = 12
             }
             
-            return String(format: "%2d:%02d AM", [hours, minutes])
+            return String(format: "%2d:%02d AM", arguments: [hours, minutes])
         }
     }
     
@@ -56,7 +56,7 @@ class Alarm: NSObject, NSCoding {
         guard let name = aDecoder.decodeObjectForKey(kName) as? String,
         	fireTimeFromMidnight = aDecoder.decodeObjectForKey(kFireTimeFromMidnight) as? NSTimeInterval,
             enabled = aDecoder.decodeObjectForKey(kEnabled) as? Bool,
-            uuid = aDecoder.decodeObjectForKey(kUuid) as? String else {return nil}
+            uuid = aDecoder.decodeObjectForKey(kUUID) as? String else {return nil}
         self.name = name
         self.fireTimeFromMidnight = fireTimeFromMidnight
         self.enabled = enabled
@@ -67,7 +67,7 @@ class Alarm: NSObject, NSCoding {
     	aCoder.encodeObject(name, forKey: kName)
         aCoder.encodeObject(fireTimeFromMidnight, forKey: kFireTimeFromMidnight)
         aCoder.encodeObject(enabled, forKey: kEnabled)
-        aCoder.encodeObject(uuid, forKey: kUuid)
+        aCoder.encodeObject(uuid, forKey: kUUID)
     }
 }
 

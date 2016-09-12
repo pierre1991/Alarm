@@ -13,10 +13,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+	func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    
         return true
+    }
+    
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        let alert = UIAlertController(title: "Time is up!", message: nil, preferredStyle: .Alert)
+        let action = UIAlertAction(title: "Dismiss", style: .Cancel, handler: nil)
+        
+        alert.addAction(action)
+        
+        window?.rootViewController?.presentViewController(alert, animated: true, completion: nil)
     }
 
     func applicationWillResignActive(application: UIApplication) {
