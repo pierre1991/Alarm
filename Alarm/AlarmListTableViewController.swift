@@ -22,7 +22,7 @@ class AlarmListTableViewController: UIViewController, AlarmScheduler {
         tableView.tableFooterView = UIView()
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         tableView.reloadData()
@@ -30,12 +30,12 @@ class AlarmListTableViewController: UIViewController, AlarmScheduler {
     
     
     //MARK: Navigation 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destinationViewController = segue.destinationViewController as? AlarmDetailTableViewController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationViewController = segue.destination as? AlarmDetailTableViewController
 
         if segue.identifier == "toDetailView" {
             guard let indexPath = tableView.indexPathForSelectedRow else {return}
-            let alarm = AlarmController.shareController.alarmArray[indexPath.row]
+            let alarm = AlarmController.shareController.alarmArray[(indexPath as NSIndexPath).row]
             destinationViewController?.alarm = alarm
         }
     }
@@ -44,13 +44,13 @@ class AlarmListTableViewController: UIViewController, AlarmScheduler {
 
 extension AlarmListTableViewController: UITableViewDataSource, UITableViewDelegate {
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return AlarmController.shareController.alarmArray.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("alarmCell", forIndexPath: indexPath) as? AlarmTableViewCell ?? AlarmTableViewCell()
-        let alarm = AlarmController.shareController.alarmArray[indexPath.row]
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "alarmCell", for: indexPath) as? AlarmTableViewCell ?? AlarmTableViewCell()
+        let alarm = AlarmController.shareController.alarmArray[(indexPath as NSIndexPath).row]
         
         cell.updateAlarm(alarm)
         cell.delegate = self
@@ -58,13 +58,13 @@ extension AlarmListTableViewController: UITableViewDataSource, UITableViewDelega
         return cell
     }
     
-    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-        	let alarm = AlarmController.shareController.alarmArray[indexPath.row]
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+        	let alarm = AlarmController.shareController.alarmArray[(indexPath as NSIndexPath).row]
             AlarmController.shareController.deleteAlarm(alarm)
             cancelLocalNotification(alarm)
             
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+            tableView.deleteRows(at: [indexPath], with: .fade)
     	}
     }
 }
@@ -72,10 +72,10 @@ extension AlarmListTableViewController: UITableViewDataSource, UITableViewDelega
 
 extension AlarmListTableViewController: SwitchTableViewCellDelegate {
     
-    func switchValueChanged(cell: AlarmTableViewCell) {
-        guard let indexPath = tableView.indexPathForCell(cell) else {return}
+    func switchValueChanged(_ cell: AlarmTableViewCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else {return}
         
-        let alarm = AlarmController.shareController.alarmArray[indexPath.row]
+        let alarm = AlarmController.shareController.alarmArray[(indexPath as NSIndexPath).row]
         AlarmController.shareController.toggleEnabled(alarm)
         
         if alarm.enabled {
@@ -84,6 +84,6 @@ extension AlarmListTableViewController: SwitchTableViewCellDelegate {
             cancelLocalNotification(alarm)
         }
         
-        tableView.reloadRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }

@@ -28,21 +28,21 @@ class AlarmTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
     
     
     //MARK: IBActions
-    @IBAction func switchValueChanged(sender: AnyObject) {
+    @IBAction func switchValueChanged(_ sender: AnyObject) {
         delegate?.switchValueChanged(self)
     }
     
     
-    func updateAlarm(alarm: Alarm) {
+    func updateAlarm(_ alarm: Alarm) {
     	hourLabel.text = alarm.fireTimeAsString
         detailLabel.text = alarm.name
-        alarmSwitch.on = alarm.enabled
+        alarmSwitch.isOn = alarm.enabled
     }
 }

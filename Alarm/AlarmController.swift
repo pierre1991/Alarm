@@ -8,16 +8,17 @@
 
 import Foundation
 import UIKit
+import UserNotifications
 
 protocol AlarmScheduler {
-    func scheduleLocalNotification(alarm: Alarm)
-    func cancelLocalNotification(alarm: Alarm)
+    func scheduleLocalNotification(_ alarm: Alarm)
+    func cancelLocalNotification(_ alarm: Alarm)
 }
 
 
 class AlarmController {
     
-    private let kAlarms = "Alarms"
+    fileprivate let kAlarms = "Alarms"
     
     
     //MARK: Singleton
@@ -35,7 +36,7 @@ class AlarmController {
     
     
     //MARK: Helper Functions
-    func addAlarm(name: String, fireTimeFromMidnight: NSTimeInterval) -> Alarm {
+    func addAlarm(_ name: String, fireTimeFromMidnight: TimeInterval) -> Alarm {
     	let alarm = Alarm(name: name, fireTimeFromMidnight: fireTimeFromMidnight)
         alarmArray.append(alarm)
         
@@ -44,21 +45,21 @@ class AlarmController {
         return alarm
     }
     
-    func updateAlarm(alarm: Alarm, name: String, fireTimeFromMidnight: NSTimeInterval) {
+    func updateAlarm(_ alarm: Alarm, name: String, fireTimeFromMidnight: TimeInterval) {
         alarm.name = name
         alarm.fireTimeFromMidnight = fireTimeFromMidnight
         
         saveToPersistantStorage()
     }
     
-    func deleteAlarm(alarm: Alarm) {
-        guard let index = alarmArray.indexOf(alarm) else {return}
-        alarmArray.removeAtIndex(index)
+    func deleteAlarm(_ alarm: Alarm) {
+        guard let index = alarmArray.index(of: alarm) else {return}
+        alarmArray.remove(at: index)
         
         saveToPersistantStorage()
     }
     
-    func toggleEnabled(alarm: Alarm) {
+    func toggleEnabled(_ alarm: Alarm) {
     	alarm.enabled = !alarm.enabled
         
         saveToPersistantStorage()
@@ -69,16 +70,16 @@ class AlarmController {
     }
     
     func loadFromPersistantStorage() {
-        guard let alarms = NSKeyedUnarchiver.unarchiveObjectWithFile(filePath(kAlarms)) as? [Alarm] else {return}
+        guard let alarms = NSKeyedUnarchiver.unarchiveObject(withFile: filePath(kAlarms)) as? [Alarm] else {return}
         self.alarmArray = alarms
     }
     
     
     
-    func filePath(key: String) -> String {
-    	let directorySearchResults = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .AllDomainsMask, true)
+    func filePath(_ key: String) -> String {
+    	let directorySearchResults = NSSearchPathForDirectoriesInDomains(.documentDirectory, .allDomainsMask, true)
         let documentsPath = directorySearchResults[0]
-        let entriesPath = documentsPath.stringByAppendingString("\(key).plist")
+        let entriesPath = documentsPath + "\(key).plist"
         
         return entriesPath
 	}
@@ -86,25 +87,42 @@ class AlarmController {
 
 extension AlarmScheduler {
     
-    func scheduleLocalNotification(alarm: Alarm) {
+    func scheduleLocalNotification(_ alarm: Alarm) {
+        let content = UNMutableNotificationContent()
+        content.title = NSString.localizedUserNotificationString(forKey: "Time is up!", arguments: nil)
+        content.body = NSString.localizedUserNotificationString(forKey: "Your alarm titled \(alarm.name) is done!", arguments: nil)
+        content.sound = .default()
+        
+        let trigger = UNTimeIntervalNotificationTrigger.init(timeInterval: TimeInterval(alarm.fireDate), repeats: true)
+        let request = UNNotificationRequest.init(identifier: "alarm", content: content, trigger: trigger)
+        let center = UNUserNotificationCenter.current()
+        
+        center.add(request, withCompletionHandler: nil)
+        
+        /*
         let localNotification = UILocalNotification()
         
         localNotification.category = alarm.uuid
         localNotification.alertTitle = "Time is up!"
         localNotification.alertBody = "Your alarm titled \(alarm.name) is done!"
-        localNotification.fireDate = alarm.fireDate
-        localNotification.repeatInterval = .Day
+        localNotification.fireDate = alarm.fireDate as Date?
+        localNotification.repeatInterval = .day
         
-        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+        UIApplication.shared.scheduleLocalNotification(localNotification)
+ 		*/
     }
     
-    func cancelLocalNotification(alarm: Alarm) {
-        guard let scheduledLocalNotification = UIApplication.sharedApplication().scheduledLocalNotifications else {return}
+    func cancelLocalNotification(_ alarm: Alarm) {
+        let center = UNUserNotificationCenter.current()
+        
+        /*
+        guard let scheduledLocalNotification = UIApplication.shared.scheduledLocalNotifications else {return}
         
         for notification in scheduledLocalNotification {
             if notification.category ?? "" == alarm.uuid {
-                UIApplication.sharedApplication().cancelLocalNotification(notification)
+                UIApplication.shared.cancelLocalNotification(notification)
             }
         }
+ 		*/
     }
 }

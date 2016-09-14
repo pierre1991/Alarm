@@ -10,5 +10,5 @@ import Foundation
 
 protocol SwitchTableViewCellDelegate: class {
     
-    func switchValueChanged(cell: AlarmTableViewCell)
+    func switchValueChanged(_ cell: AlarmTableViewCell)
 }

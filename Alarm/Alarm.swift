@@ -10,19 +10,19 @@ import Foundation
 
 class Alarm: NSObject, NSCoding {
     
-    private let kName = "name"
-    private let kFireTimeFromMidnight = "fireTimeFromMidnight"
-    private let kEnabled = "enabled"
-    private let kUUID = "UUID"
+    fileprivate let kName = "name"
+    fileprivate let kFireTimeFromMidnight = "fireTimeFromMidnight"
+    fileprivate let kEnabled = "enabled"
+    fileprivate let kUUID = "UUID"
     
     var name: String
-    var fireTimeFromMidnight: NSTimeInterval
+    var fireTimeFromMidnight: TimeInterval
     var enabled: Bool
     var uuid: String
     
-    var fireDate: NSDate? {
+    var fireDate: Date? {
         guard let thisMorningAtMidnight = DateHelper.thisMorningAtMidnight else {return nil}
-        let fireDateFromThisMorning = NSDate(timeInterval: fireTimeFromMidnight, sinceDate: thisMorningAtMidnight)
+        let fireDateFromThisMorning = Date(timeInterval: fireTimeFromMidnight, since: thisMorningAtMidnight as Date)
         
         return fireDateFromThisMorning
     }
@@ -45,7 +45,7 @@ class Alarm: NSObject, NSCoding {
         }
     }
     
-    init(name: String, fireTimeFromMidnight: NSTimeInterval, enabled: Bool = true, uuid: String = NSUUID().UUIDString) {
+    init(name: String, fireTimeFromMidnight: TimeInterval, enabled: Bool = true, uuid: String = UUID().uuidString) {
         self.name = name
         self.fireTimeFromMidnight = fireTimeFromMidnight
         self.enabled = enabled
@@ -53,21 +53,21 @@ class Alarm: NSObject, NSCoding {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        guard let name = aDecoder.decodeObjectForKey(kName) as? String,
-        	fireTimeFromMidnight = aDecoder.decodeObjectForKey(kFireTimeFromMidnight) as? NSTimeInterval,
-            enabled = aDecoder.decodeObjectForKey(kEnabled) as? Bool,
-            uuid = aDecoder.decodeObjectForKey(kUUID) as? String else {return nil}
+        guard let name = aDecoder.decodeObject(forKey: kName) as? String,
+        	let fireTimeFromMidnight = aDecoder.decodeObject(forKey: kFireTimeFromMidnight) as? TimeInterval,
+            let enabled = aDecoder.decodeObject(forKey: kEnabled) as? Bool,
+            let uuid = aDecoder.decodeObject(forKey: kUUID) as? String else {return nil}
         self.name = name
         self.fireTimeFromMidnight = fireTimeFromMidnight
         self.enabled = enabled
         self.uuid = uuid
     }
     
-    func encodeWithCoder(aCoder: NSCoder) {
-    	aCoder.encodeObject(name, forKey: kName)
-        aCoder.encodeObject(fireTimeFromMidnight, forKey: kFireTimeFromMidnight)
-        aCoder.encodeObject(enabled, forKey: kEnabled)
-        aCoder.encodeObject(uuid, forKey: kUUID)
+    func encode(with aCoder: NSCoder) {
+    	aCoder.encode(name, forKey: kName)
+        aCoder.encode(fireTimeFromMidnight, forKey: kFireTimeFromMidnight)
+        aCoder.encode(enabled, forKey: kEnabled)
+        aCoder.encode(uuid, forKey: kUUID)
     }
 }
 

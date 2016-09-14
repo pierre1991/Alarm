@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="jcn-of-xdF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="bHe-1t-Eg0">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -14,18 +14,18 @@
                         <viewControllerLayoutGuide type="bottom" id="RjF-Nw-CsK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="K2e-w2-6hz">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uDN-Ts-r5x">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uDN-Ts-r5x">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="alarmCell" rowHeight="72" id="WLu-I0-nqu" customClass="AlarmTableViewCell" customModule="Alarm" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="600" height="66"/>
+                                        <rect key="frame" x="0.0" y="92" width="320" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WLu-I0-nqu" id="CfP-mP-OHW">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="71"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="12:00 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YaH-Yd-CLY">
@@ -68,6 +68,11 @@
                                                     <exclude reference="GYC-oo-XVF"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <exclude reference="JL0-gN-WDm"/>
+                                                    <exclude reference="PYp-Rc-p2T"/>
+                                                    <exclude reference="Q05-ww-5DG"/>
+                                                    <exclude reference="l8F-33-wW9"/>
+                                                    <exclude reference="sEj-b3-Jqg"/>
                                                     <exclude reference="5Zt-Lb-Iq6"/>
                                                     <exclude reference="SdJ-m6-WQq"/>
                                                     <exclude reference="b9l-Kt-nP3"/>
@@ -75,11 +80,6 @@
                                                     <exclude reference="iZd-X5-cjf"/>
                                                     <exclude reference="u4x-II-qAP"/>
                                                     <exclude reference="w5u-ue-iHe"/>
-                                                    <exclude reference="JL0-gN-WDm"/>
-                                                    <exclude reference="PYp-Rc-p2T"/>
-                                                    <exclude reference="Q05-ww-5DG"/>
-                                                    <exclude reference="l8F-33-wW9"/>
-                                                    <exclude reference="sEj-b3-Jqg"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -89,6 +89,11 @@
                                                     <include reference="GYC-oo-XVF"/>
                                                 </mask>
                                                 <mask key="constraints">
+                                                    <include reference="JL0-gN-WDm"/>
+                                                    <include reference="PYp-Rc-p2T"/>
+                                                    <include reference="Q05-ww-5DG"/>
+                                                    <include reference="l8F-33-wW9"/>
+                                                    <include reference="sEj-b3-Jqg"/>
                                                     <include reference="5Zt-Lb-Iq6"/>
                                                     <include reference="SdJ-m6-WQq"/>
                                                     <include reference="b9l-Kt-nP3"/>
@@ -96,11 +101,6 @@
                                                     <include reference="iZd-X5-cjf"/>
                                                     <include reference="u4x-II-qAP"/>
                                                     <include reference="w5u-ue-iHe"/>
-                                                    <include reference="JL0-gN-WDm"/>
-                                                    <include reference="PYp-Rc-p2T"/>
-                                                    <include reference="Q05-ww-5DG"/>
-                                                    <include reference="l8F-33-wW9"/>
-                                                    <include reference="sEj-b3-Jqg"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -108,7 +108,7 @@
                                             <outlet property="alarmSwitch" destination="GYC-oo-XVF" id="tmD-4v-bfF"/>
                                             <outlet property="detailLabel" destination="rIf-60-i36" id="RNV-Pw-iBA"/>
                                             <outlet property="hourLabel" destination="YaH-Yd-CLY" id="cC9-Dg-4fY"/>
-                                            <segue destination="Cbj-My-Pw7" kind="show" identifier="toDetailView" id="Otd-iP-CwG"/>
+                                            <segue destination="Cbj-My-Pw7" kind="presentation" identifier="toDetailView" id="SbI-mD-GMU"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -129,7 +129,7 @@
                     <navigationItem key="navigationItem" id="GD6-ds-HhW">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Xju-OK-sHq">
                             <connections>
-                                <segue destination="Cbj-My-Pw7" kind="show" id="v6H-1j-oRe"/>
+                                <segue destination="Cbj-My-Pw7" kind="presentation" id="hR6-UC-ryl"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -139,21 +139,67 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uNv-0P-9N4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1659" y="484.5"/>
+            <point key="canvasLocation" x="2433" y="484.5"/>
         </scene>
         <!--Alarm Detail Table View Controller-->
         <scene sceneID="eaO-w0-cik">
             <objects>
                 <tableViewController id="Cbj-My-Pw7" customClass="AlarmDetailTableViewController" customModule="Alarm" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="eJi-31-x6Q">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="ieB-C5-wVv">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="128"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVI-eN-3J1">
+                                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                    <state key="normal" title="Save">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                        <rect key="frame" x="272" y="26" width="34" height="30"/>
+                                    </variation>
+                                    <connections>
+                                        <action selector="saveButtonTapped:" destination="Cbj-My-Pw7" eventType="touchUpInside" id="OoJ-uY-Zrb"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sun-4p-Ntl">
+                                    <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                    <state key="normal" title="Cancel">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                        <rect key="frame" x="7" y="26" width="48" height="30"/>
+                                    </variation>
+                                    <connections>
+                                        <action selector="cancelButtonTapped:" destination="Cbj-My-Pw7" eventType="touchUpInside" id="3mj-u2-1hL"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.0" green="0.79607843140000001" blue="0.87058823529999996" alpha="1" colorSpace="calibratedRGB"/>
+                            <variation key="default">
+                                <mask key="subviews">
+                                    <exclude reference="hVI-eN-3J1"/>
+                                    <exclude reference="Sun-4p-Ntl"/>
+                                </mask>
+                            </variation>
+                            <variation key="heightClass=regular-widthClass=compact">
+                                <mask key="subviews">
+                                    <include reference="hVI-eN-3J1"/>
+                                    <include reference="Sun-4p-Ntl"/>
+                                </mask>
+                            </variation>
+                        </view>
                         <sections>
                             <tableViewSection id="EQ2-j7-iEM">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="216" id="PkT-wc-bKR">
+                                        <rect key="frame" x="0.0" y="128" width="320" height="216"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PkT-wc-bKR" id="oIJ-nE-ej8">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="215"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="9V8-a2-two">
@@ -198,8 +244,10 @@
                             <tableViewSection id="tZn-aR-I6K">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="Bs2-aQ-RlW">
+                                        <rect key="frame" x="0.0" y="380" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bs2-aQ-RlW" id="vT9-F8-Nf0">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="alarm title..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ut3-A5-0Ve">
@@ -240,8 +288,10 @@
                             <tableViewSection id="RC2-eA-7AO">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="wi3-bV-eNn">
+                                        <rect key="frame" x="0.0" y="466" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wi3-bV-eNn" id="EyF-5n-C8J">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3pj-AG-L6S">
@@ -292,11 +342,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="s8x-6t-hZT">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="caU-gX-HRi">
-                            <connections>
-                                <action selector="saveButtonTapped:" destination="Cbj-My-Pw7" id="lqa-07-j8q"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="caU-gX-HRi"/>
                     </navigationItem>
                     <connections>
                         <outlet property="datePicker" destination="9V8-a2-two" id="HRd-0F-zC0"/>
@@ -306,12 +352,13 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nEY-ch-buT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2421" y="484.5"/>
+            <point key="canvasLocation" x="3081" y="484.5"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Alarm-->
         <scene sceneID="ch9-tg-t0e">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jcn-of-xdF" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Alarm" image="Alarm" id="Kkp-o9-gBB"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="d43-in-CIa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -324,10 +371,53 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oAs-2g-Vo3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="912" y="484.5"/>
+            <point key="canvasLocation" x="1830" y="484.5"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="fH8-UQ-Xjp">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="bHe-1t-Eg0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="j9k-xD-O3g">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="jcn-of-xdF" kind="relationship" relationship="viewControllers" id="eAh-be-nSH"/>
+                        <segue destination="cv4-Uf-TWk" kind="relationship" relationship="viewControllers" id="5Cw-NR-Fkg"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BYq-8f-IwY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1089" y="190.5"/>
+        </scene>
+        <!--Timer-->
+        <scene sceneID="gds-Bu-FCZ">
+            <objects>
+                <viewController id="cv4-Uf-TWk" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EKC-Lf-fkK"/>
+                        <viewControllerLayoutGuide type="bottom" id="P8d-1R-8j1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cXH-fh-kxw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Timer" image="Stopwatch" id="uNF-ow-Pkx"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VqZ-Kf-PFI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1830" y="-87.75"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Alarm" width="17" height="17"/>
+        <image name="Stopwatch" width="14" height="15"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Otd-iP-CwG"/>
+        <segue reference="SbI-mD-GMU"/>
     </inferredMetricsTieBreakers>
 </document>
