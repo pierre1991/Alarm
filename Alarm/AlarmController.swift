@@ -85,6 +85,7 @@ class AlarmController {
 	}
 }
 
+/*
 extension AlarmScheduler {
     
     func scheduleLocalNotification(_ alarm: Alarm) {
@@ -126,3 +127,5 @@ extension AlarmScheduler {
  		*/
     }
 }
+*/
+

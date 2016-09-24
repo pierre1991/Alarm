@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AlarmDetailTableViewController: UITableViewController, AlarmScheduler {
+class AlarmDetailTableViewController: UITableViewController {
 
     
     //MARK: Properties
@@ -43,12 +43,12 @@ class AlarmDetailTableViewController: UITableViewController, AlarmScheduler {
         
         if let alarm = alarm {
             AlarmController.shareController.updateAlarm(alarm, name: title, fireTimeFromMidnight: timeIntervalSinceMidnight)
-            cancelLocalNotification(alarm)
-            scheduleLocalNotification(alarm)
+            //NotificationManager.sharedController.cancelAlarmNotification(alarm: alarm)
+            //NotificationManager.sharedController.scheduleAlarmNotification(alarm: alarm)
         } else {
             let alarm = AlarmController.shareController.addAlarm(title, fireTimeFromMidnight: timeIntervalSinceMidnight)
             self.alarm = alarm
-            scheduleLocalNotification(alarm)
+            //NotificationManager.sharedController.scheduleAlarmNotification(alarm: alarm)
         }
     	
         guard let navigationController = navigationController else {return}
@@ -62,9 +62,9 @@ class AlarmDetailTableViewController: UITableViewController, AlarmScheduler {
         AlarmController.shareController.toggleEnabled(alarm)
         
         if alarm.enabled {
-            scheduleLocalNotification(alarm)
+            //NotificationManager.sharedController.scheduleAlarmNotification(alarm: alarm)
         } else {
-            cancelLocalNotification(alarm)
+            //NotificationManager.sharedController.cancelAlarmNotification(alarm: alarm)
         }
         
         setupView()

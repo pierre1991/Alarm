@@ -11,10 +11,16 @@ import UIKit
 
 extension UIColor {
     
-    
     static func tealGreenColor() -> UIColor {
         return UIColor(red: 0.0/255.0, green: 203.0/255.0, blue: 222.0/255.0, alpha: 1.0)
     }
     
+    static func barTintGreenColor() -> UIColor {
+        return UIColor(red: 0.0/255.0, green: 90.0/255.0, blue: 90.0/255.0, alpha: 1.0)
+    }
+    
+    static func backgroundColor() -> UIColor {
+        return UIColor(red: 11.0/255.0, green: 54.0/255.0, blue: 55.0/255.0, alpha: 1.0)
+    }
     
 }

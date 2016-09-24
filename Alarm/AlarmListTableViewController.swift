@@ -8,10 +8,12 @@
 
 import UIKit
 
-class AlarmListTableViewController: UIViewController, AlarmScheduler {
+class AlarmListTableViewController: UIViewController {
 
     
     //MARK: IBOutlets
+    @IBOutlet weak var noAlarmView: UIView!
+    
     @IBOutlet weak var tableView: UITableView!
     
     
@@ -25,8 +27,25 @@ class AlarmListTableViewController: UIViewController, AlarmScheduler {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        if AlarmController.shareController.alarmArray.count == 0 {
+            self.noAlarmView.isHidden = false
+        }
+        
         tableView.reloadData()
     }
+    
+    
+    //MARK: IBActions
+    @IBAction func scheduleNotificationTapped(_ sender: AnyObject) {
+        NotificationManager.sharedController.scheduleAlarmNotification(inSeconds: 10) { (true) in
+            if true {
+                print("scheduled notification")
+            }
+        }
+    }
+
+
+    
     
     
     //MARK: Navigation 
@@ -62,7 +81,8 @@ extension AlarmListTableViewController: UITableViewDataSource, UITableViewDelega
         if editingStyle == .delete {
         	let alarm = AlarmController.shareController.alarmArray[(indexPath as NSIndexPath).row]
             AlarmController.shareController.deleteAlarm(alarm)
-            cancelLocalNotification(alarm)
+            
+            //NotificationManager.sharedController.scheduleAlarmNotification(alarm: alarm)
             
             tableView.deleteRows(at: [indexPath], with: .fade)
     	}
@@ -79,9 +99,9 @@ extension AlarmListTableViewController: SwitchTableViewCellDelegate {
         AlarmController.shareController.toggleEnabled(alarm)
         
         if alarm.enabled {
-            scheduleLocalNotification(alarm)
+            //NotificationManager.sharedController.scheduleAlarmNotification(alarm: alarm)
         } else {
-            cancelLocalNotification(alarm)
+            //NotificationManager.sharedController.cancelAlarmNotification(alarm: alarm)
         }
         
         tableView.reloadRows(at: [indexPath], with: .automatic)

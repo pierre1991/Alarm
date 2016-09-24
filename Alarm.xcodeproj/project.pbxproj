@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F2E6C6C1D8C80C70054803E /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F2E6C6B1D8C80C70054803E /* Extensions.swift */; };
+		8F64A1C21D8B3EE20068512E /* TimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F64A1C11D8B3EE20068512E /* TimerViewController.swift */; };
 		8F73146A1D8325460025FD71 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7314691D8325460025FD71 /* AppDelegate.swift */; };
 		8F73146F1D8325460025FD71 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F73146D1D8325460025FD71 /* Main.storyboard */; };
 		8F7314711D8325460025FD71 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F7314701D8325460025FD71 /* Assets.xcassets */; };
@@ -20,6 +22,14 @@
 		8F763F701D83649E00C8BBA4 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F763F6F1D83649E00C8BBA4 /* DateHelper.swift */; };
 		8F763F721D83688100C8BBA4 /* AlarmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F763F711D83688100C8BBA4 /* AlarmController.swift */; };
 		8F763F771D836CEB00C8BBA4 /* AlarmCellSwitchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F763F761D836CEB00C8BBA4 /* AlarmCellSwitchProtocol.swift */; };
+		8F81357F1D8B415600D26475 /* CountdownTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F81357E1D8B415600D26475 /* CountdownTimer.swift */; };
+		8F9F74261D89C64F001FA66A /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9F74251D89C64F001FA66A /* NotificationManager.swift */; };
+		8F9F74281D8A1270001FA66A /* candybars.gif in Resources */ = {isa = PBXBuildFile; fileRef = 8F9F74271D8A1270001FA66A /* candybars.gif */; };
+		8F9F74301D8A16C0001FA66A /* UserNotifications.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9F742F1D8A16C0001FA66A /* UserNotifications.framework */; };
+		8F9F74321D8A16C0001FA66A /* UserNotificationsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F9F74311D8A16C0001FA66A /* UserNotificationsUI.framework */; };
+		8F9F74351D8A16C0001FA66A /* NotificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9F74341D8A16C0001FA66A /* NotificationViewController.swift */; };
+		8F9F74381D8A16C0001FA66A /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F9F74361D8A16C0001FA66A /* MainInterface.storyboard */; };
+		8F9F743C1D8A16C0001FA66A /* ContentExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8F9F742D1D8A16C0001FA66A /* ContentExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8FABF7DA1D87530200DCB24F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FABF7D91D87530200DCB24F /* Colors.swift */; };
 		8FABF7DC1D87530F00DCB24F /* AppearanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FABF7DB1D87530F00DCB24F /* AppearanceController.swift */; };
 /* End PBXBuildFile section */
@@ -39,9 +49,32 @@
 			remoteGlobalIDString = 8F7314651D8325460025FD71;
 			remoteInfo = Alarm;
 		};
+		8F9F743A1D8A16C0001FA66A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8F73145E1D8325460025FD71 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8F9F742C1D8A16C0001FA66A;
+			remoteInfo = ContentExtension;
+		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		8F9F74401D8A16C0001FA66A /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				8F9F743C1D8A16C0001FA66A /* ContentExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		8F2E6C6B1D8C80C70054803E /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		8F64A1C11D8B3EE20068512E /* TimerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerViewController.swift; sourceTree = "<group>"; };
 		8F7314661D8325460025FD71 /* Alarm.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alarm.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F7314691D8325460025FD71 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8F73146E1D8325460025FD71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -61,6 +94,15 @@
 		8F763F6F1D83649E00C8BBA4 /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		8F763F711D83688100C8BBA4 /* AlarmController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmController.swift; sourceTree = "<group>"; };
 		8F763F761D836CEB00C8BBA4 /* AlarmCellSwitchProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmCellSwitchProtocol.swift; sourceTree = "<group>"; };
+		8F81357E1D8B415600D26475 /* CountdownTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountdownTimer.swift; sourceTree = "<group>"; };
+		8F9F74251D89C64F001FA66A /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
+		8F9F74271D8A1270001FA66A /* candybars.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = candybars.gif; sourceTree = "<group>"; };
+		8F9F742D1D8A16C0001FA66A /* ContentExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ContentExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		8F9F742F1D8A16C0001FA66A /* UserNotifications.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotifications.framework; path = System/Library/Frameworks/UserNotifications.framework; sourceTree = SDKROOT; };
+		8F9F74311D8A16C0001FA66A /* UserNotificationsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UserNotificationsUI.framework; path = System/Library/Frameworks/UserNotificationsUI.framework; sourceTree = SDKROOT; };
+		8F9F74341D8A16C0001FA66A /* NotificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewController.swift; sourceTree = "<group>"; };
+		8F9F74371D8A16C0001FA66A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		8F9F74391D8A16C0001FA66A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8FABF7D91D87530200DCB24F /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		8FABF7DB1D87530F00DCB24F /* AppearanceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppearanceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,6 +129,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8F9F742A1D8A16C0001FA66A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F9F74321D8A16C0001FA66A /* UserNotificationsUI.framework in Frameworks */,
+				8F9F74301D8A16C0001FA66A /* UserNotifications.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -94,8 +145,11 @@
 			isa = PBXGroup;
 			children = (
 				8F7314681D8325460025FD71 /* Alarm */,
+				8F9F74271D8A1270001FA66A /* candybars.gif */,
 				8F73147D1D8325460025FD71 /* AlarmTests */,
 				8F7314881D8325460025FD71 /* AlarmUITests */,
+				8F9F74331D8A16C0001FA66A /* ContentExtension */,
+				8F9F742E1D8A16C0001FA66A /* Frameworks */,
 				8F7314671D8325460025FD71 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -106,6 +160,7 @@
 				8F7314661D8325460025FD71 /* Alarm.app */,
 				8F73147A1D8325460025FD71 /* AlarmTests.xctest */,
 				8F7314851D8325460025FD71 /* AlarmUITests.xctest */,
+				8F9F742D1D8A16C0001FA66A /* ContentExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -151,6 +206,7 @@
 			children = (
 				8F763F631D83349000C8BBA4 /* AlarmListTableViewController.swift */,
 				8F763F6B1D8362F100C8BBA4 /* AlarmDetailTableViewController.swift */,
+				8F64A1C11D8B3EE20068512E /* TimerViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -167,6 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				8F763F6D1D8363CC00C8BBA4 /* Alarm.swift */,
+				8F81357E1D8B415600D26475 /* CountdownTimer.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -177,6 +234,7 @@
 				8F763F6F1D83649E00C8BBA4 /* DateHelper.swift */,
 				8FABF7D91D87530200DCB24F /* Colors.swift */,
 				8FABF7DB1D87530F00DCB24F /* AppearanceController.swift */,
+				8F2E6C6B1D8C80C70054803E /* Extensions.swift */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -185,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				8F763F711D83688100C8BBA4 /* AlarmController.swift */,
+				8F9F74251D89C64F001FA66A /* NotificationManager.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -197,6 +256,25 @@
 			name = Protocol;
 			sourceTree = "<group>";
 		};
+		8F9F742E1D8A16C0001FA66A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8F9F742F1D8A16C0001FA66A /* UserNotifications.framework */,
+				8F9F74311D8A16C0001FA66A /* UserNotificationsUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8F9F74331D8A16C0001FA66A /* ContentExtension */ = {
+			isa = PBXGroup;
+			children = (
+				8F9F74341D8A16C0001FA66A /* NotificationViewController.swift */,
+				8F9F74361D8A16C0001FA66A /* MainInterface.storyboard */,
+				8F9F74391D8A16C0001FA66A /* Info.plist */,
+			);
+			path = ContentExtension;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -207,10 +285,12 @@
 				8F7314621D8325460025FD71 /* Sources */,
 				8F7314631D8325460025FD71 /* Frameworks */,
 				8F7314641D8325460025FD71 /* Resources */,
+				8F9F74401D8A16C0001FA66A /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				8F9F743B1D8A16C0001FA66A /* PBXTargetDependency */,
 			);
 			name = Alarm;
 			productName = Alarm;
@@ -253,13 +333,30 @@
 			productReference = 8F7314851D8325460025FD71 /* AlarmUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		8F9F742C1D8A16C0001FA66A /* ContentExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F9F743D1D8A16C0001FA66A /* Build configuration list for PBXNativeTarget "ContentExtension" */;
+			buildPhases = (
+				8F9F74291D8A16C0001FA66A /* Sources */,
+				8F9F742A1D8A16C0001FA66A /* Frameworks */,
+				8F9F742B1D8A16C0001FA66A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ContentExtension;
+			productName = ContentExtension;
+			productReference = 8F9F742D1D8A16C0001FA66A /* ContentExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		8F73145E1D8325460025FD71 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
+				LastSwiftUpdateCheck = 0800;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Pierre;
 				TargetAttributes = {
@@ -277,6 +374,11 @@
 						CreatedOnToolsVersion = 7.3;
 						LastSwiftMigration = 0800;
 						TestTargetID = 8F7314651D8325460025FD71;
+					};
+					8F9F742C1D8A16C0001FA66A = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = VXY4XHS49U;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -296,6 +398,7 @@
 				8F7314651D8325460025FD71 /* Alarm */,
 				8F7314791D8325460025FD71 /* AlarmTests */,
 				8F7314841D8325460025FD71 /* AlarmUITests */,
+				8F9F742C1D8A16C0001FA66A /* ContentExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -305,6 +408,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F9F74281D8A1270001FA66A /* candybars.gif in Resources */,
 				8F7314741D8325460025FD71 /* LaunchScreen.storyboard in Resources */,
 				8F7314711D8325460025FD71 /* Assets.xcassets in Resources */,
 				8F73146F1D8325460025FD71 /* Main.storyboard in Resources */,
@@ -325,6 +429,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8F9F742B1D8A16C0001FA66A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F9F74381D8A16C0001FA66A /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -336,12 +448,16 @@
 				8FABF7DA1D87530200DCB24F /* Colors.swift in Sources */,
 				8F763F771D836CEB00C8BBA4 /* AlarmCellSwitchProtocol.swift in Sources */,
 				8F763F641D83349000C8BBA4 /* AlarmListTableViewController.swift in Sources */,
+				8F81357F1D8B415600D26475 /* CountdownTimer.swift in Sources */,
+				8F64A1C21D8B3EE20068512E /* TimerViewController.swift in Sources */,
+				8F9F74261D89C64F001FA66A /* NotificationManager.swift in Sources */,
 				8F763F6E1D8363CC00C8BBA4 /* Alarm.swift in Sources */,
 				8F763F701D83649E00C8BBA4 /* DateHelper.swift in Sources */,
 				8F763F6C1D8362F100C8BBA4 /* AlarmDetailTableViewController.swift in Sources */,
 				8F763F691D8336FA00C8BBA4 /* AlarmTableViewCell.swift in Sources */,
 				8F763F721D83688100C8BBA4 /* AlarmController.swift in Sources */,
 				8FABF7DC1D87530F00DCB24F /* AppearanceController.swift in Sources */,
+				8F2E6C6C1D8C80C70054803E /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +477,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8F9F74291D8A16C0001FA66A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F9F74351D8A16C0001FA66A /* NotificationViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -373,6 +497,11 @@
 			isa = PBXTargetDependency;
 			target = 8F7314651D8325460025FD71 /* Alarm */;
 			targetProxy = 8F7314861D8325460025FD71 /* PBXContainerItemProxy */;
+		};
+		8F9F743B1D8A16C0001FA66A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8F9F742C1D8A16C0001FA66A /* ContentExtension */;
+			targetProxy = 8F9F743A1D8A16C0001FA66A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -391,6 +520,14 @@
 				8F7314731D8325460025FD71 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		8F9F74361D8A16C0001FA66A /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8F9F74371D8A16C0001FA66A /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -487,6 +624,7 @@
 		8F73148F1D8325460025FD71 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = VXY4XHS49U;
@@ -501,6 +639,7 @@
 		8F7314901D8325460025FD71 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = VXY4XHS49U;
@@ -562,6 +701,39 @@
 			};
 			name = Release;
 		};
+		8F9F743E1D8A16C0001FA66A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = VXY4XHS49U;
+				INFOPLIST_FILE = ContentExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dev.Pierre.Alarm.ContentExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		8F9F743F1D8A16C0001FA66A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = VXY4XHS49U;
+				INFOPLIST_FILE = ContentExtension/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.dev.Pierre.Alarm.ContentExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -597,6 +769,15 @@
 			buildConfigurations = (
 				8F7314951D8325460025FD71 /* Debug */,
 				8F7314961D8325460025FD71 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8F9F743D1D8A16C0001FA66A /* Build configuration list for PBXNativeTarget "ContentExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F9F743E1D8A16C0001FA66A /* Debug */,
+				8F9F743F1D8A16C0001FA66A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

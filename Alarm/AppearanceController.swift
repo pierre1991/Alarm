@@ -12,7 +12,11 @@ import UIKit
 class AppearanceController {
     
     static func initializeAppearanceDefaults() {
-        UINavigationBar.appearance().barTintColor = UIColor.tealGreenColor()
-        UITabBar.appearance().barTintColor = UIColor.tealGreenColor()
+        UINavigationBar.appearance().barTintColor = UIColor.barTintGreenColor()
+        UINavigationBar.appearance().isTranslucent = false
+        
+        UITabBar.appearance().barTintColor = UIColor.barTintGreenColor()
+        UITabBar.appearance().isTranslucent = false
+        UITabBar.appearance().tintColor = UIColor.white
     }
 }

@@ -19,23 +19,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
         AppearanceController.initializeAppearanceDefaults()
         
+        NotificationManager.sharedController.registerForNotifications()
+        
+        UNUserNotificationCenter.current().delegate = self
+        
+        configureUserNotifications()
+        
         return true
     }
-    
-    func application(_ application: UIApplication, didRegister notificationSettings: UNUserNotificationCenter) {
-        <#code#>
-    }
-    
-    /*
-    func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
-        let alert = UIAlertController(title: "Time is up!", message: nil, preferredStyle: .alert)
-        let action = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
-        
-        alert.addAction(action)
-        
-        window?.rootViewController?.present(alert, animated: true, completion: nil)
-    }
- 	*/
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -58,7 +49,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
+    
+    func configureUserNotifications() {
+        let cancelAction = UNNotificationAction(identifier: "cancelAction", title: "cancel", options: [])
+        let openAction = UNNotificationAction(identifier: "openAction", title: "open", options: [])
+        
+        let category = UNNotificationCategory(identifier: "myNotificationCategory", actions: [cancelAction, openAction], intentIdentifiers: [], options: [])
+        
+        UNUserNotificationCenter.current().setNotificationCategories([category])
+    }
+    
 }
 
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert, .sound])
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        completionHandler()
+    }
+
+}
