@@ -59,6 +59,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UNUserNotificationCenter.current().setNotificationCategories([category])
     }
     
+
+    
 }
 
 

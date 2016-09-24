@@ -51,8 +51,7 @@ class AlarmDetailTableViewController: UITableViewController {
             //NotificationManager.sharedController.scheduleAlarmNotification(alarm: alarm)
         }
     	
-        guard let navigationController = navigationController else {return}
-        navigationController.popViewController(animated: true)
+        dismiss(animated: true, completion: nil)
     }
     
     

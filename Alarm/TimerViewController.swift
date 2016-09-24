@@ -13,6 +13,8 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     //MARK: Properties
     var countdownTimer = CountdownTimer()
     
+    var isPaused = false
+    
     
     //MARK: IBOutlets
     @IBOutlet weak var progressView: UIProgressView!
@@ -34,16 +36,13 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         
         minutePickerView.selectRow(1, inComponent: 0, animated: false)
         
+        
         NotificationCenter.default.addObserver(self, selector: #selector(TimerViewController.updateTimerView), name: NSNotification.Name.init(rawValue: CountdownTimer.kSecondsTick), object: countdownTimer)
         NotificationCenter.default.addObserver(self, selector: #selector(TimerViewController.timerComplete), name: NSNotification.Name.init(rawValue: CountdownTimer.kTimerComplete), object: countdownTimer)
         
         
         hourPickerView.tintColor = .white
-        
-        
-        
         minutePickerView.tintColor = .white
-        
     }
 
     
@@ -51,8 +50,12 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBAction func startButtonTapped(_ sender: AnyObject) {
         if !countdownTimer.isOn {
         	startTimer()
+        } else if countdownTimer.isOn {
+            countdownTimer.pauseTimer()
+            startButton.setTitle("resume", for: .normal)
         }
     }
+
     
     @IBAction func cancelButtonTapped(_ sender: AnyObject) {
         if countdownTimer.isOn {
@@ -76,10 +79,6 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
             return 0
         }
     }
-    
-//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-//        return String(row)
-//    }
     
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
         return NSAttributedString(string: String(row), attributes: [NSForegroundColorAttributeName:UIColor.white])
@@ -105,26 +104,13 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         }
     }
     
-    
-    //MARK: Progress View
-    func updateProgressView() {
-        let secondsElapsed = countdownTimer.totalSeconds - countdownTimer.seconds
-        let progress = Float(secondsElapsed) / Float(countdownTimer.totalSeconds)
-        
-        progressView.setProgress(progress, animated: true)
-    }
-    
-    
-    
-    func timerComplete() {
-        switchToTimerLabelView()
-    }
-    
     func updateTimerLabel() {
         timerLabel.text = countdownTimer.timeString
     }
     
-
+    func timerComplete() {
+        switchToTimerLabelView()
+    }
     
     func updateTimerView() {
         updateTimerLabel()
@@ -134,7 +120,7 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     func switchToTimerLabelView() {
         pickerStackView.isHidden = true
         
-    	timerLabel.isHidden = false
+        timerLabel.isHidden = false
         
         progressView.setProgress(0.0, animated: true)
         progressView.isHidden = false
@@ -153,6 +139,12 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     }
     
     
+    //MARK: Progress View
+    func updateProgressView() {
+        let secondsElapsed = countdownTimer.totalSeconds - countdownTimer.seconds
+        let progress = Float(secondsElapsed) / Float(countdownTimer.totalSeconds)
+        
+        progressView.setProgress(progress, animated: true)
+    }
 
-    
 }

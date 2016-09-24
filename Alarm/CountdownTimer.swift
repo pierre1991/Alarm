@@ -69,6 +69,12 @@ class CountdownTimer: NSObject {
         }
     }
     
+    func pauseTimer() {
+        if isOn {
+            countdownTimer?.invalidate()
+        }
+    }
+    
     func stopTimer() {
         if isOn {
             countdownTimer?.invalidate()
