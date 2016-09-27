@@ -13,7 +13,6 @@ class AlarmListTableViewController: UIViewController {
     
     //MARK: IBOutlets
     @IBOutlet weak var noAlarmView: UIView!
-    
     @IBOutlet weak var tableView: UITableView!
     
     
@@ -29,6 +28,9 @@ class AlarmListTableViewController: UIViewController {
         
         if AlarmController.shareController.alarmArray.count == 0 {
             self.noAlarmView.isHidden = false
+        } else if AlarmController.shareController.alarmArray.count > 0 {
+            self.noAlarmView.isHidden = true
+            tableView.reloadData()
         }
         
         tableView.reloadData()
@@ -45,9 +47,6 @@ class AlarmListTableViewController: UIViewController {
     }
 
 
-    
-    
-    
     //MARK: Navigation 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destinationViewController = segue.destination as? AlarmDetailTableViewController
@@ -58,13 +57,23 @@ class AlarmListTableViewController: UIViewController {
             destinationViewController?.alarm = alarm
         }
     }
+    
 }
+
 
 
 extension AlarmListTableViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return AlarmController.shareController.alarmArray.count
+        if AlarmController.shareController.alarmArray.count > 0 {
+            self.noAlarmView.isHidden = true 
+            
+            return AlarmController.shareController.alarmArray.count
+        } else if AlarmController.shareController.alarmArray.count == 0 {
+            self.noAlarmView.isHidden = false
+        }
+        
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -87,7 +96,9 @@ extension AlarmListTableViewController: UITableViewDataSource, UITableViewDelega
             tableView.deleteRows(at: [indexPath], with: .fade)
     	}
     }
+    
 }
+
 
 
 extension AlarmListTableViewController: SwitchTableViewCellDelegate {

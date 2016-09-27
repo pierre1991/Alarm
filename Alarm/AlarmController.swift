@@ -20,7 +20,6 @@ class AlarmController {
     
     fileprivate let kAlarms = "Alarms"
     
-    
     //MARK: Singleton
     static let shareController = AlarmController()
     
@@ -65,6 +64,11 @@ class AlarmController {
         saveToPersistantStorage()
     }
     
+    
+    
+    
+    //MARK: NSCoding
+    
     func saveToPersistantStorage() {
         NSKeyedArchiver.archiveRootObject(self.alarmArray, toFile: filePath(kAlarms))
     }
@@ -74,8 +78,6 @@ class AlarmController {
         self.alarmArray = alarms
     }
     
-    
-    
     func filePath(_ key: String) -> String {
     	let directorySearchResults = NSSearchPathForDirectoriesInDomains(.documentDirectory, .allDomainsMask, true)
         let documentsPath = directorySearchResults[0]
@@ -83,6 +85,7 @@ class AlarmController {
         
         return entriesPath
 	}
+    
 }
 
 /*

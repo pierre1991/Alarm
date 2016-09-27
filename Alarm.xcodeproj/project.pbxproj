@@ -146,10 +146,10 @@
 			children = (
 				8F7314681D8325460025FD71 /* Alarm */,
 				8F9F74271D8A1270001FA66A /* candybars.gif */,
-				8F73147D1D8325460025FD71 /* AlarmTests */,
-				8F7314881D8325460025FD71 /* AlarmUITests */,
 				8F9F74331D8A16C0001FA66A /* ContentExtension */,
 				8F9F742E1D8A16C0001FA66A /* Frameworks */,
+				8F73147D1D8325460025FD71 /* AlarmTests */,
+				8F7314881D8325460025FD71 /* AlarmUITests */,
 				8F7314671D8325460025FD71 /* Products */,
 			);
 			sourceTree = "<group>";
