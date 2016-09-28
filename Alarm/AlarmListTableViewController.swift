@@ -20,18 +20,18 @@ class AlarmListTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.tableFooterView = UIView()
+        //tableView.tableFooterView = UIView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if AlarmController.shareController.alarmArray.count == 0 {
-            self.noAlarmView.isHidden = false
-        } else if AlarmController.shareController.alarmArray.count > 0 {
-            self.noAlarmView.isHidden = true
-            tableView.reloadData()
-        }
+//        if AlarmController.shareController.alarmArray.count == 0 {
+//            self.noAlarmView.isHidden = false
+//        } else if AlarmController.shareController.alarmArray.count > 0 {
+//            self.noAlarmView.isHidden = true
+//            tableView.reloadData()
+//        }
         
         tableView.reloadData()
     }
@@ -65,15 +65,18 @@ class AlarmListTableViewController: UIViewController {
 extension AlarmListTableViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if AlarmController.shareController.alarmArray.count > 0 {
-            self.noAlarmView.isHidden = true 
-            
-            return AlarmController.shareController.alarmArray.count
-        } else if AlarmController.shareController.alarmArray.count == 0 {
-            self.noAlarmView.isHidden = false
-        }
+//        if AlarmController.shareController.alarmArray.count > 0 {
+//            self.noAlarmView.isHidden = true 
+//            
+//            return AlarmController.shareController.alarmArray.count
+//        } else if AlarmController.shareController.alarmArray.count == 0 {
+//            self.noAlarmView.isHidden = false
+//        }
+//        
+//        return 0
         
-        return 0
+        return AlarmController.shareController.alarmArray.count
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

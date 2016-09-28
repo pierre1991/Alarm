@@ -18,18 +18,19 @@ protocol AlarmScheduler {
 
 class AlarmController {
     
-    fileprivate let kAlarms = "Alarms"
+    private let kAlarms = "Alarms"
     
     //MARK: Singleton
     static let shareController = AlarmController()
     
     
     //MARK: Properties
-    var alarmArray: [Alarm] = []
+    var alarmArray: [Alarm]
     
     
     //MARK: Init
     init() {
+        alarmArray = []
         loadFromPersistantStorage()
     }
     
@@ -70,21 +71,24 @@ class AlarmController {
     //MARK: NSCoding
     
     func saveToPersistantStorage() {
-        NSKeyedArchiver.archiveRootObject(self.alarmArray, toFile: filePath(kAlarms))
+        NSKeyedArchiver.archiveRootObject(self.alarmArray, toFile: self.filePath(key: kAlarms))
     }
     
     func loadFromPersistantStorage() {
-        guard let alarms = NSKeyedUnarchiver.unarchiveObject(withFile: filePath(kAlarms)) as? [Alarm] else {return}
-        self.alarmArray = alarms
+        let unarchivedAlarms = NSKeyedUnarchiver.unarchiveObject(withFile: self.filePath(key: kAlarms))
+        
+        if let alarm = unarchivedAlarms as? [Alarm] {
+            self.alarmArray = alarm
+        }
     }
     
-    func filePath(_ key: String) -> String {
-    	let directorySearchResults = NSSearchPathForDirectoriesInDomains(.documentDirectory, .allDomainsMask, true)
-        let documentsPath = directorySearchResults[0]
-        let entriesPath = documentsPath + "\(key).plist"
+    func filePath(key: String) -> String {
+        let directorySearchResults = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true)
+        let documentPath: AnyObject = directorySearchResults[0] as AnyObject
+        let alarmPath = documentPath.appending("/\(key).plist")
         
-        return entriesPath
-	}
+        return alarmPath
+    }
     
 }
 

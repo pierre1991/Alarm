@@ -10,10 +10,10 @@ import Foundation
 
 class Alarm: NSObject, NSCoding {
     
-    fileprivate let kName = "name"
-    fileprivate let kFireTimeFromMidnight = "fireTimeFromMidnight"
-    fileprivate let kEnabled = "enabled"
-    fileprivate let kUUID = "UUID"
+    private let kName = "name"
+    private let kFireTimeFromMidnight = "fireTimeFromMidnight"
+    private let kEnabled = "enabled"
+    private let kUUID = "UUID"
     
     var name: String
     var fireTimeFromMidnight: TimeInterval
