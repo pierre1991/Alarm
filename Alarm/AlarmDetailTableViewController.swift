@@ -46,8 +46,8 @@ class AlarmDetailTableViewController: UITableViewController {
             //NotificationManager.sharedController.cancelAlarmNotification(alarm: alarm)
             //NotificationManager.sharedController.scheduleAlarmNotification(alarm: alarm)
         } else {
-            let alarm = AlarmController.shareController.addAlarm(title, fireTimeFromMidnight: timeIntervalSinceMidnight)
-            self.alarm = alarm
+            AlarmController.shareController.addAlarm(title, fireTimeFromMidnight: timeIntervalSinceMidnight)
+            
             //NotificationManager.sharedController.scheduleAlarmNotification(alarm: alarm)
         }
     	
@@ -76,8 +76,10 @@ class AlarmDetailTableViewController: UITableViewController {
 
     func updateWithAlarm(_ alarm: Alarm) {
         guard let thisMorningAtMidnight = DateHelper.thisMorningAtMidnight else {return}
-    	datePicker.setDate(Date(timeInterval: alarm.fireTimeFromMidnight, since: thisMorningAtMidnight), animated: false)
+    	
+        datePicker.setDate(Date(timeInterval: alarm.fireTimeFromMidnight, since: thisMorningAtMidnight), animated: false)
         detailTextField.text = alarm.name
+        
         self.title = alarm.name
     }
     

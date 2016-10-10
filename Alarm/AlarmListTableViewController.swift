@@ -65,23 +65,12 @@ class AlarmListTableViewController: UIViewController {
 extension AlarmListTableViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if AlarmController.shareController.alarmArray.count > 0 {
-//            self.noAlarmView.isHidden = true 
-//            
-//            return AlarmController.shareController.alarmArray.count
-//        } else if AlarmController.shareController.alarmArray.count == 0 {
-//            self.noAlarmView.isHidden = false
-//        }
-//        
-//        return 0
-        
-        return AlarmController.shareController.alarmArray.count
-        
+		return AlarmController.shareController.alarmArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "alarmCell", for: indexPath) as? AlarmTableViewCell ?? AlarmTableViewCell()
-        let alarm = AlarmController.shareController.alarmArray[(indexPath as NSIndexPath).row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "alarmCell", for: indexPath) as! AlarmTableViewCell
+        let alarm = AlarmController.shareController.alarmArray[indexPath.row]
         
         cell.updateAlarm(alarm)
         cell.delegate = self
@@ -109,7 +98,7 @@ extension AlarmListTableViewController: SwitchTableViewCellDelegate {
     func switchValueChanged(_ cell: AlarmTableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell) else {return}
         
-        let alarm = AlarmController.shareController.alarmArray[(indexPath as NSIndexPath).row]
+        let alarm = AlarmController.shareController.alarmArray[indexPath.row]
         AlarmController.shareController.toggleEnabled(alarm)
         
         if alarm.enabled {

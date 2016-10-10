@@ -36,13 +36,11 @@ class AlarmController {
     
     
     //MARK: Helper Functions
-    func addAlarm(_ name: String, fireTimeFromMidnight: TimeInterval) -> Alarm {
+    func addAlarm(_ name: String, fireTimeFromMidnight: TimeInterval) {
     	let alarm = Alarm(name: name, fireTimeFromMidnight: fireTimeFromMidnight)
         alarmArray.append(alarm)
         
         saveToPersistantStorage()
-        
-        return alarm
     }
     
     func updateAlarm(_ alarm: Alarm, name: String, fireTimeFromMidnight: TimeInterval) {

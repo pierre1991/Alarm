@@ -116,50 +116,14 @@
                                     <outlet property="delegate" destination="28e-sg-98K" id="fmD-4V-i4F"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kCy-AO-UdB" userLabel="NoAlarmsView">
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="⏰" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AH5-s5-KVo">
-                                        <gestureRecognizers/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="66"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="x29-ld-1Ce" appends="YES" id="NMR-Kx-98P"/>
-                                        </connections>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="tap the ' + ' button to start adding some alarms" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RwC-JL-qYt">
-                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.043137254901960784" green="0.21176470588235294" blue="0.21568627450980393" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="RwC-JL-qYt" firstAttribute="leading" secondItem="kCy-AO-UdB" secondAttribute="leading" constant="70" id="BER-ni-VBa"/>
-                                    <constraint firstItem="RwC-JL-qYt" firstAttribute="centerX" secondItem="kCy-AO-UdB" secondAttribute="centerX" id="EpP-MC-n4a"/>
-                                    <constraint firstItem="RwC-JL-qYt" firstAttribute="top" secondItem="kCy-AO-UdB" secondAttribute="top" constant="171" id="Pai-pL-nQv"/>
-                                    <constraint firstAttribute="trailing" secondItem="RwC-JL-qYt" secondAttribute="trailing" constant="70" id="jr4-ew-f9y"/>
-                                    <constraint firstItem="RwC-JL-qYt" firstAttribute="centerX" secondItem="AH5-s5-KVo" secondAttribute="centerX" id="rpk-ec-k2P"/>
-                                    <constraint firstItem="AH5-s5-KVo" firstAttribute="top" secondItem="RwC-JL-qYt" secondAttribute="bottom" constant="8" symbolic="YES" id="wPa-pG-5bk"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="RjF-Nw-CsK" firstAttribute="top" secondItem="kCy-AO-UdB" secondAttribute="bottom" id="6UO-f4-ROe"/>
-                            <constraint firstAttribute="trailing" secondItem="kCy-AO-UdB" secondAttribute="trailing" id="6j3-63-8EZ"/>
                             <constraint firstAttribute="trailing" secondItem="uDN-Ts-r5x" secondAttribute="trailing" id="8K0-VY-fWc"/>
                             <constraint firstItem="uDN-Ts-r5x" firstAttribute="top" secondItem="K2e-w2-6hz" secondAttribute="top" id="Q2s-iF-Qqp"/>
-                            <constraint firstItem="kCy-AO-UdB" firstAttribute="leading" secondItem="K2e-w2-6hz" secondAttribute="leading" id="Xl1-XT-Vcs"/>
                             <constraint firstItem="uDN-Ts-r5x" firstAttribute="leading" secondItem="K2e-w2-6hz" secondAttribute="leading" id="pyj-vW-VKF"/>
-                            <constraint firstItem="kCy-AO-UdB" firstAttribute="top" secondItem="L6b-2J-RZc" secondAttribute="bottom" id="rjl-Jr-0jx"/>
                             <constraint firstItem="RjF-Nw-CsK" firstAttribute="top" secondItem="uDN-Ts-r5x" secondAttribute="bottom" id="xgL-Gx-7rl"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="kCy-AO-UdB"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="GD6-ds-HhW">
                         <nil key="title"/>
@@ -175,16 +139,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="noAlarmView" destination="kCy-AO-UdB" id="B1T-pV-M8g"/>
                         <outlet property="tableView" destination="uDN-Ts-r5x" id="1lw-8n-lpJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uNv-0P-9N4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="x29-ld-1Ce">
-                    <connections>
-                        <segue destination="Cbj-My-Pw7" kind="presentation" id="ppI-pN-O4l"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2576.25" y="474.29577464788736"/>
         </scene>

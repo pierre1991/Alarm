@@ -169,10 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				8F7314691D8325460025FD71 /* AppDelegate.swift */,
-				8F73146D1D8325460025FD71 /* Main.storyboard */,
-				8F7314701D8325460025FD71 /* Assets.xcassets */,
-				8F7314721D8325460025FD71 /* LaunchScreen.storyboard */,
-				8F7314751D8325460025FD71 /* Info.plist */,
+				8F802AE51DAC2BD5006F8693 /* Resources */,
 				8F763F731D836B6E00C8BBA4 /* Model */,
 				8F763F751D836B8700C8BBA4 /* Controller */,
 				8F763F671D8336E100C8BBA4 /* ViewControllers */,
@@ -254,6 +251,17 @@
 				8F763F761D836CEB00C8BBA4 /* AlarmCellSwitchProtocol.swift */,
 			);
 			name = Protocol;
+			sourceTree = "<group>";
+		};
+		8F802AE51DAC2BD5006F8693 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8F73146D1D8325460025FD71 /* Main.storyboard */,
+				8F7314701D8325460025FD71 /* Assets.xcassets */,
+				8F7314721D8325460025FD71 /* LaunchScreen.storyboard */,
+				8F7314751D8325460025FD71 /* Info.plist */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		8F9F742E1D8A16C0001FA66A /* Frameworks */ = {

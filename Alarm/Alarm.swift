@@ -52,11 +52,13 @@ class Alarm: NSObject, NSCoding {
         self.uuid = uuid
     }
     
+    
     required init?(coder aDecoder: NSCoder) {
-        guard let name = aDecoder.decodeObject(forKey: kName) as? String,
+    	guard let name = aDecoder.decodeObject(forKey: kName) as? String,
         	let fireTimeFromMidnight = aDecoder.decodeObject(forKey: kFireTimeFromMidnight) as? TimeInterval,
-            let enabled = aDecoder.decodeObject(forKey: kEnabled) as? Bool,
+        	let enabled = aDecoder.decodeObject(forKey: kEnabled) as? Bool,
             let uuid = aDecoder.decodeObject(forKey: kUUID) as? String else {return nil}
+        
         self.name = name
         self.fireTimeFromMidnight = fireTimeFromMidnight
         self.enabled = enabled
@@ -64,13 +66,11 @@ class Alarm: NSObject, NSCoding {
     }
     
     func encode(with aCoder: NSCoder) {
-    	aCoder.encode(name, forKey: kName)
+        aCoder.encode(name, forKey: kName)
         aCoder.encode(fireTimeFromMidnight, forKey: kFireTimeFromMidnight)
         aCoder.encode(enabled, forKey: kEnabled)
         aCoder.encode(uuid, forKey: kUUID)
     }
+
 }
 
-func ==(lhs: Alarm, rhs: Alarm) -> Bool {
-    return lhs.uuid == rhs.uuid
-}
