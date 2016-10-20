@@ -16,7 +16,7 @@ extension UIColor {
     }
     
     static func barTintGreenColor() -> UIColor {
-        return UIColor(red: 0.0/255.0, green: 90.0/255.0, blue: 90.0/255.0, alpha: 1.0)
+        return UIColor(red: 73.0/255.0, green: 217.0/255.0, blue: 206.0/255.0, alpha: 1.0)
     }
     
     static func backgroundColor() -> UIColor {

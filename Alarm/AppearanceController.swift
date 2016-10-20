@@ -12,11 +12,14 @@ import UIKit
 class AppearanceController {
     
     static func initializeAppearanceDefaults() {
-        UINavigationBar.appearance().barTintColor = UIColor.barTintGreenColor()
+        UINavigationBar.appearance().barTintColor = .barTintGreenColor()
         UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().barStyle = .black
+        UINavigationBar.appearance().tintColor = .white
         
-        UITabBar.appearance().barTintColor = UIColor.barTintGreenColor()
+        UITabBar.appearance().barTintColor = .barTintGreenColor()
         UITabBar.appearance().isTranslucent = false
-        UITabBar.appearance().tintColor = UIColor.white
+        UITabBar.appearance().tintColor = .white
+        UITabBar.appearance().barStyle = .black
     }
 }
