@@ -17,17 +17,17 @@
                         <viewControllerLayoutGuide type="bottom" id="RjF-Nw-CsK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="K2e-w2-6hz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="66" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uDN-Ts-r5x">
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="alarmCell" rowHeight="72" id="WLu-I0-nqu" customClass="AlarmTableViewCell" customModule="Alarm" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="72"/>
+                                        <rect key="frame" x="0.0" y="92" width="320" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WLu-I0-nqu" id="CfP-mP-OHW">
-                                            <frame key="frameInset" width="375" height="71"/>
+                                            <frame key="frameInset" width="320" height="71"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="12:00 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YaH-Yd-CLY">
@@ -116,11 +116,41 @@
                                     <outlet property="delegate" destination="28e-sg-98K" id="fmD-4V-i4F"/>
                                 </connections>
                             </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xei-BL-Xcj" userLabel="NoAlarmsView">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oea-6b-LCR">
+                                        <state key="normal" image="alarm_empty_data_page"/>
+                                        <connections>
+                                            <action selector="alarmIconTapped:" destination="28e-sg-98K" eventType="touchUpInside" id="jKZ-OM-NKK"/>
+                                            <segue destination="Cbj-My-Pw7" kind="presentation" id="Fsi-AY-LkZ"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start off by scheduling some alarms" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEZ-gX-Muo">
+                                        <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="20"/>
+                                        <color key="textColor" red="0.28627450980392155" green="0.85098039215686272" blue="0.80784313725490198" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="wEZ-gX-Muo" firstAttribute="leading" secondItem="Xei-BL-Xcj" secondAttribute="leading" constant="53" id="8g9-lQ-C22"/>
+                                    <constraint firstAttribute="bottom" secondItem="wEZ-gX-Muo" secondAttribute="bottom" constant="141" id="BZb-l1-aHp"/>
+                                    <constraint firstAttribute="trailing" secondItem="wEZ-gX-Muo" secondAttribute="trailing" constant="52" id="L3e-XG-pYx"/>
+                                    <constraint firstItem="wEZ-gX-Muo" firstAttribute="top" secondItem="Oea-6b-LCR" secondAttribute="bottom" constant="8" id="Obh-Jb-pcr"/>
+                                    <constraint firstItem="Oea-6b-LCR" firstAttribute="leading" secondItem="Xei-BL-Xcj" secondAttribute="leading" constant="110" id="bKw-6y-LUt"/>
+                                    <constraint firstItem="Oea-6b-LCR" firstAttribute="top" secondItem="Xei-BL-Xcj" secondAttribute="top" constant="141" id="q4Q-JG-jTw"/>
+                                    <constraint firstAttribute="trailing" secondItem="Oea-6b-LCR" secondAttribute="trailing" constant="111" id="vyo-Sa-Kpn"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="uDN-Ts-r5x" secondAttribute="trailing" id="8K0-VY-fWc"/>
                             <constraint firstItem="uDN-Ts-r5x" firstAttribute="top" secondItem="K2e-w2-6hz" secondAttribute="top" id="Q2s-iF-Qqp"/>
+                            <constraint firstItem="Xei-BL-Xcj" firstAttribute="top" secondItem="L6b-2J-RZc" secondAttribute="bottom" id="XaO-B2-z3A"/>
+                            <constraint firstAttribute="trailing" secondItem="Xei-BL-Xcj" secondAttribute="trailing" id="bvn-Az-EG8"/>
+                            <constraint firstItem="Xei-BL-Xcj" firstAttribute="leading" secondItem="K2e-w2-6hz" secondAttribute="leading" id="ife-HR-hgC"/>
+                            <constraint firstItem="RjF-Nw-CsK" firstAttribute="top" secondItem="Xei-BL-Xcj" secondAttribute="bottom" id="l5k-jv-Yf2"/>
                             <constraint firstItem="uDN-Ts-r5x" firstAttribute="leading" secondItem="K2e-w2-6hz" secondAttribute="leading" id="pyj-vW-VKF"/>
                             <constraint firstItem="RjF-Nw-CsK" firstAttribute="top" secondItem="uDN-Ts-r5x" secondAttribute="bottom" id="xgL-Gx-7rl"/>
                         </constraints>
@@ -139,26 +169,29 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="alarmIcon" destination="Oea-6b-LCR" id="LNC-C0-7TV"/>
+                        <outlet property="noAlarmView" destination="Xei-BL-Xcj" id="oMD-eK-2XE"/>
                         <outlet property="tableView" destination="uDN-Ts-r5x" id="1lw-8n-lpJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uNv-0P-9N4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2576.25" y="474.29577464788736"/>
+            <point key="canvasLocation" x="2574.375" y="473.23943661971833"/>
         </scene>
         <!--Alarm Detail Table View Controller-->
         <scene sceneID="eaO-w0-cik">
             <objects>
                 <tableViewController id="Cbj-My-Pw7" customClass="AlarmDetailTableViewController" customModule="Alarm" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="eJi-31-x6Q">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="ieB-C5-wVv">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="64"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sun-4p-Ntl">
+                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                     <state key="normal" title="Cancel">
                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
@@ -167,6 +200,7 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVI-eN-3J1">
+                                    <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                     <state key="normal" title="Save">
                                         <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
@@ -175,10 +209,10 @@
                                     </connections>
                                 </button>
                             </subviews>
-                            <color key="backgroundColor" red="0.0" green="0.3529411764705882" blue="0.3529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="backgroundColor" red="0.28627450980000002" green="0.85098039219999999" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
-                                <constraint firstItem="hVI-eN-3J1" firstAttribute="bottom" secondItem="ieB-C5-wVv" secondAttribute="bottomMargin" id="4el-ge-aXy"/>
-                                <constraint firstItem="hVI-eN-3J1" firstAttribute="baseline" secondItem="Sun-4p-Ntl" secondAttribute="baseline" id="Ban-du-HRi"/>
+                                <constraint firstItem="hVI-eN-3J1" firstAttribute="bottom" secondItem="ieB-C5-wVv" secondAttribute="bottomMargin" constant="6" id="4el-ge-aXy"/>
+                                <constraint firstItem="hVI-eN-3J1" firstAttribute="baseline" secondItem="Sun-4p-Ntl" secondAttribute="baseline" constant="-1" id="Ban-du-HRi"/>
                                 <constraint firstItem="Sun-4p-Ntl" firstAttribute="leading" secondItem="ieB-C5-wVv" secondAttribute="leading" constant="7" id="IQn-I7-vhj"/>
                                 <constraint firstItem="hVI-eN-3J1" firstAttribute="trailing" secondItem="ieB-C5-wVv" secondAttribute="trailingMargin" id="QqV-dq-eA2"/>
                             </constraints>
@@ -199,10 +233,10 @@
                             <tableViewSection id="EQ2-j7-iEM">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="216" id="PkT-wc-bKR">
-                                        <rect key="frame" x="0.0" y="64" width="375" height="216"/>
+                                        <rect key="frame" x="0.0" y="64" width="320" height="216"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PkT-wc-bKR" id="oIJ-nE-ej8">
-                                            <frame key="frameInset" width="375" height="215"/>
+                                            <frame key="frameInset" width="320" height="215"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="9V8-a2-two">
@@ -246,10 +280,10 @@
                             <tableViewSection id="tZn-aR-I6K">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="Bs2-aQ-RlW">
-                                        <rect key="frame" x="0.0" y="316" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="316" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bs2-aQ-RlW" id="vT9-F8-Nf0">
-                                            <frame key="frameInset" width="375" height="49"/>
+                                            <frame key="frameInset" width="320" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="alarm title..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ut3-A5-0Ve">
@@ -289,10 +323,10 @@
                             <tableViewSection id="RC2-eA-7AO">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="50" id="wi3-bV-eNn">
-                                        <rect key="frame" x="0.0" y="402" width="375" height="50"/>
+                                        <rect key="frame" x="0.0" y="402" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wi3-bV-eNn" id="EyF-5n-C8J">
-                                            <frame key="frameInset" width="375" height="49"/>
+                                            <frame key="frameInset" width="320" height="49"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3pj-AG-L6S">
@@ -401,7 +435,7 @@
                         <viewControllerLayoutGuide type="bottom" id="P8d-1R-8j1"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="cXH-fh-kxw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4pV-Nl-dUc">
@@ -563,8 +597,9 @@
     <resources>
         <image name="Alarm" width="25" height="25"/>
         <image name="Stopwatch" width="25" height="26"/>
+        <image name="alarm_empty_data_page" width="99" height="101"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="SbI-mD-GMU"/>
+        <segue reference="Fsi-AY-LkZ"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -12,28 +12,21 @@ class AlarmListTableViewController: UIViewController {
 
     
     //MARK: IBOutlets
+    @IBOutlet weak var alarmIcon: UIButton!
     @IBOutlet weak var noAlarmView: UIView!
+    
     @IBOutlet weak var tableView: UITableView!
     
     
 	//MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //tableView.tableFooterView = UIView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        if AlarmController.shareController.alarmArray.count == 0 {
-//            self.noAlarmView.isHidden = false
-//        } else if AlarmController.shareController.alarmArray.count > 0 {
-//            self.noAlarmView.isHidden = true
-//            tableView.reloadData()
-//        }
-        
-        tableView.reloadData()
+		tableView.reloadData()
     }
     
     
@@ -46,6 +39,15 @@ class AlarmListTableViewController: UIViewController {
         }
     }
 
+    @IBAction func alarmIconTapped(_ sender: AnyObject) {
+        UIView.animate(withDuration: 0.1, animations: {
+            self.alarmIcon.transform = CGAffineTransform(scaleX: 1.1, y: 1.1)
+            }) { (finish) in
+                UIView.animate(withDuration: 0.1, animations: {
+                    self.alarmIcon.transform = CGAffineTransform.identity
+                })
+        }
+    }
 
     //MARK: Navigation 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -65,7 +67,14 @@ class AlarmListTableViewController: UIViewController {
 extension AlarmListTableViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return AlarmController.shareController.alarmArray.count
+        if AlarmController.shareController.alarmArray.count == 0 {
+            noAlarmView.isHidden = false
+        } else if AlarmController.shareController.alarmArray.count > 0 {
+            noAlarmView.isHidden = true
+            return AlarmController.shareController.alarmArray.count
+        }
+        
+        return AlarmController.shareController.alarmArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -21,7 +21,6 @@ class AlarmDetailTableViewController: UITableViewController {
     @IBOutlet weak var enableButton: UIButton!
     
     
-    
     //MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +32,11 @@ class AlarmDetailTableViewController: UITableViewController {
         setupView()
 	}
 
+    
+    //MARK: Status Bar
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
     
     //MARK: IBActions
