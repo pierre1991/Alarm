@@ -24,8 +24,10 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     @IBOutlet weak var hourPickerView: UIPickerView!
     @IBOutlet weak var minutePickerView: UIPickerView!
     
-    @IBOutlet weak var startButton: UIButton!
-    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var actionOne: UIButton!
+    @IBOutlet weak var actionTwo: UIButton!
+    
+
     
         
     //MARK: View Life Cycle
@@ -43,26 +45,65 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         
         hourPickerView.tintColor = .white
         minutePickerView.tintColor = .white
+        
+    	actionTwo.layer.transform = CATransform3DTranslate(CATransform3DIdentity, -self.view.frame.width, 0, 0)
     }
 
     
     //MARK: IBActions
-    @IBAction func startButtonTapped(_ sender: AnyObject) {
+    
+    @IBAction func actionOneButtonTapped(_ sender: AnyObject) {
+        actionOne.setImage(UIImage(named: "resume_button"), for: .normal)
+        actionTwo.setImage(UIImage(named: "pause_button"), for: .normal)
+        
+        actionTwo.layer.transform = CATransform3DIdentity
+        
         if !countdownTimer.isOn {
         	startTimer()
         } else if countdownTimer.isOn {
-            countdownTimer.pauseTimer()
-            startButton.setTitle("resume", for: .normal)
+            startTimer()
+            actionOne.setImage(UIImage(named: "resume_button"), for: .normal)
         }
     }
-
     
-    @IBAction func cancelButtonTapped(_ sender: AnyObject) {
+    @IBAction func actionTwoButtonTapped(_ sender: AnyObject) {
         if countdownTimer.isOn {
-            countdownTimer.stopTimer()
-            switchToPickerView()
+            if actionTwo.currentImage == UIImage(named: "pause_button") {
+                countdownTimer.pauseTimer()
+                
+                actionTwo.setImage(UIImage(named: "cancel_button"), for: .normal)
+            } else if actionTwo.currentImage == UIImage(named: "cancel_button") {
+                countdownTimer.stopTimer()
+                
+                switchToPickerView()
+                
+                actionTwo.layer.transform = CATransform3DTranslate(CATransform3DIdentity, -self.view.frame.width, 0, 0)
+                actionTwo.setImage(UIImage(named: "pause_button"), for: .normal)
+                
+                actionOne.setImage(UIImage(named: "start_button"), for: .normal)
+            }
+        } else if !countdownTimer.isOn {
+            //cancel
         }
     }
+    
+    
+//    @IBAction func startButtonTapped(_ sender: AnyObject) {
+//        if !countdownTimer.isOn {
+//        	startTimer()
+//        } else if countdownTimer.isOn {
+//            countdownTimer.pauseTimer()
+//            startButton.setTitle("resume", for: .normal)
+//        }
+//    }
+//
+//    
+//    @IBAction func cancelButtonTapped(_ sender: AnyObject) {
+//        if countdownTimer.isOn {
+//            countdownTimer.stopTimer()
+//            switchToPickerView()
+//        }
+//    }
     
     
     //MARK: PickerView Protocol Methods
@@ -125,7 +166,7 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         progressView.setProgress(0.0, animated: true)
         progressView.isHidden = false
         
-        startButton.setTitle("Pause", for: .normal)
+        //startButton.setTitle("Pause", for: .normal)
     }
     
     func switchToPickerView() {
@@ -135,7 +176,7 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
         
         progressView.isHidden = true
         
-        startButton.setTitle("Start", for: .normal)
+        //startButton.setTitle("Start", for: .normal)
     }
     
     

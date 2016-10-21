@@ -27,7 +27,7 @@
                                         <rect key="frame" x="0.0" y="92" width="320" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WLu-I0-nqu" id="CfP-mP-OHW">
-                                            <frame key="frameInset" width="320" height="71"/>
+                                            <frame key="frameInset" width="320" height="72"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="12:00 PM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YaH-Yd-CLY">
@@ -236,7 +236,7 @@
                                         <rect key="frame" x="0.0" y="64" width="320" height="216"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PkT-wc-bKR" id="oIJ-nE-ej8">
-                                            <frame key="frameInset" width="320" height="215"/>
+                                            <frame key="frameInset" width="320" height="216"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="9V8-a2-two">
@@ -283,7 +283,7 @@
                                         <rect key="frame" x="0.0" y="316" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bs2-aQ-RlW" id="vT9-F8-Nf0">
-                                            <frame key="frameInset" width="320" height="49"/>
+                                            <frame key="frameInset" width="320" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="alarm title..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ut3-A5-0Ve">
@@ -326,7 +326,7 @@
                                         <rect key="frame" x="0.0" y="402" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wi3-bV-eNn" id="EyF-5n-C8J">
-                                            <frame key="frameInset" width="320" height="49"/>
+                                            <frame key="frameInset" width="320" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3pj-AG-L6S">
@@ -506,31 +506,29 @@
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eI1-qs-jfS" userLabel="BottomView">
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YqN-u6-qxs" customClass="CircularButton" customModule="Alarm" customModuleProvider="target">
-                                                <color key="backgroundColor" red="0.0001922522367" green="1" blue="0.1971572093" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" title="Start"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YqN-u6-qxs">
+                                                <state key="normal" image="start_button"/>
                                                 <connections>
-                                                    <action selector="startButtonTapped:" destination="cv4-Uf-TWk" eventType="touchUpInside" id="iNA-B9-zkV"/>
+                                                    <action selector="actionOneButtonTapped:" destination="cv4-Uf-TWk" eventType="touchUpInside" id="WrC-v3-xDg"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5j2-NU-aqi" customClass="CircularButton" customModule="Alarm" customModuleProvider="target">
-                                                <color key="backgroundColor" red="1" green="0.37807951909999998" blue="0.12348064459999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                <state key="normal" title="Cancel"/>
+                                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5j2-NU-aqi">
+                                                <state key="normal" image="pause_button"/>
                                                 <connections>
-                                                    <action selector="cancelButtonTapped:" destination="cv4-Uf-TWk" eventType="touchUpInside" id="YmK-ac-I8D"/>
+                                                    <action selector="actionTwoButtonTapped:" destination="cv4-Uf-TWk" eventType="touchUpInside" id="Ita-yX-T74"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" red="0.043137254901960784" green="0.21176470588235294" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="bottom" secondItem="YqN-u6-qxs" secondAttribute="bottom" constant="63" identifier="startButtonBottom" id="8LW-Gu-4NM"/>
-                                            <constraint firstItem="5j2-NU-aqi" firstAttribute="top" secondItem="eI1-qs-jfS" secondAttribute="top" constant="63" identifier="cancelButtonTop" id="BXq-Ix-4Qi"/>
-                                            <constraint firstAttribute="trailing" secondItem="YqN-u6-qxs" secondAttribute="trailing" constant="43" identifier="startButtonTrailing" id="CWN-72-rk3"/>
-                                            <constraint firstItem="YqN-u6-qxs" firstAttribute="top" secondItem="eI1-qs-jfS" secondAttribute="top" constant="63" identifier="startButtonTop" id="FIT-n4-OdJ"/>
-                                            <constraint firstItem="5j2-NU-aqi" firstAttribute="leading" secondItem="eI1-qs-jfS" secondAttribute="leading" constant="43" identifier="cancelButtonLeading" id="V0n-be-ih5"/>
-                                            <constraint firstAttribute="bottom" secondItem="5j2-NU-aqi" secondAttribute="bottom" constant="63" identifier="cancelButtonBottom" id="bKT-jv-4iI"/>
-                                            <constraint firstAttribute="trailing" secondItem="5j2-NU-aqi" secondAttribute="trailing" constant="213" identifier="cancelButtonTrailing" id="tmQ-cF-eW2"/>
-                                            <constraint firstItem="YqN-u6-qxs" firstAttribute="leading" secondItem="eI1-qs-jfS" secondAttribute="leading" constant="213" identifier="startButtonLeading" id="uAw-PR-ugC"/>
+                                            <constraint firstAttribute="trailing" secondItem="YqN-u6-qxs" secondAttribute="trailing" constant="21" id="4EP-ap-rsU"/>
+                                            <constraint firstAttribute="bottom" secondItem="5j2-NU-aqi" secondAttribute="bottom" constant="23" id="9bj-2V-qa6"/>
+                                            <constraint firstAttribute="bottom" secondItem="YqN-u6-qxs" secondAttribute="bottom" constant="24" id="Lha-EC-Y1K"/>
+                                            <constraint firstItem="5j2-NU-aqi" firstAttribute="top" secondItem="eI1-qs-jfS" secondAttribute="top" constant="25" id="UIb-vi-F8T"/>
+                                            <constraint firstItem="5j2-NU-aqi" firstAttribute="leading" secondItem="eI1-qs-jfS" secondAttribute="leading" constant="22" id="Xfx-4r-Z9y"/>
+                                            <constraint firstAttribute="trailing" secondItem="5j2-NU-aqi" secondAttribute="trailing" constant="190" id="jEz-v7-Mlb"/>
+                                            <constraint firstItem="YqN-u6-qxs" firstAttribute="leading" secondItem="eI1-qs-jfS" secondAttribute="leading" constant="191" id="rum-vO-oHg"/>
+                                            <constraint firstItem="YqN-u6-qxs" firstAttribute="top" secondItem="eI1-qs-jfS" secondAttribute="top" constant="24" id="xsf-EH-6z2"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -561,12 +559,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="S4q-wv-iCN"/>
                     <connections>
-                        <outlet property="cancelButton" destination="5j2-NU-aqi" id="XSi-cV-X9k"/>
+                        <outlet property="actionOne" destination="YqN-u6-qxs" id="wwS-d3-ktL"/>
+                        <outlet property="actionTwo" destination="5j2-NU-aqi" id="l3x-5g-HyB"/>
                         <outlet property="hourPickerView" destination="RAR-nw-IPB" id="TBc-NN-066"/>
                         <outlet property="minutePickerView" destination="T4T-cr-Kik" id="eNf-Cf-Tss"/>
                         <outlet property="pickerStackView" destination="sQG-E0-ErV" id="HZU-N7-mbu"/>
                         <outlet property="progressView" destination="Hcr-gD-gKa" id="QLU-FW-chU"/>
-                        <outlet property="startButton" destination="YqN-u6-qxs" id="bGH-UF-z7P"/>
                         <outlet property="timerLabel" destination="FBB-Oe-p7v" id="2oC-hy-EWy"/>
                     </connections>
                 </viewController>
@@ -598,6 +596,8 @@
         <image name="Alarm" width="25" height="25"/>
         <image name="Stopwatch" width="25" height="26"/>
         <image name="alarm_empty_data_page" width="99" height="101"/>
+        <image name="pause_button" width="108" height="108"/>
+        <image name="start_button" width="108" height="108"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Fsi-AY-LkZ"/>
