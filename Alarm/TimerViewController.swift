@@ -53,57 +53,34 @@ class TimerViewController: UIViewController, UIPickerViewDelegate, UIPickerViewD
     //MARK: IBActions
     
     @IBAction func actionOneButtonTapped(_ sender: AnyObject) {
-        actionOne.setImage(UIImage(named: "resume_button"), for: .normal)
-        actionTwo.setImage(UIImage(named: "pause_button"), for: .normal)
-        
         actionTwo.layer.transform = CATransform3DIdentity
         
         if !countdownTimer.isOn {
         	startTimer()
+        	actionOne.setImage(UIImage(named: "pause_button"), for: .normal)
         } else if countdownTimer.isOn {
-            startTimer()
-            actionOne.setImage(UIImage(named: "resume_button"), for: .normal)
+            if actionOne.currentImage == UIImage(named: "pause_button") {
+                countdownTimer.pauseTimer()
+                actionOne.setImage(UIImage(named: "resume_button"), for: .normal)
+            } else if actionOne.currentImage == UIImage(named: "resume_button") {
+                countdownTimer.startTimer()
+                actionOne.setImage(UIImage(named: "pause_button"), for: .normal)
+            }
         }
     }
     
     @IBAction func actionTwoButtonTapped(_ sender: AnyObject) {
         if countdownTimer.isOn {
-            if actionTwo.currentImage == UIImage(named: "pause_button") {
-                countdownTimer.pauseTimer()
-                
-                actionTwo.setImage(UIImage(named: "cancel_button"), for: .normal)
-            } else if actionTwo.currentImage == UIImage(named: "cancel_button") {
+            if actionTwo.currentImage == UIImage(named: "cancel_button") {
                 countdownTimer.stopTimer()
-                
                 switchToPickerView()
-                
                 actionTwo.layer.transform = CATransform3DTranslate(CATransform3DIdentity, -self.view.frame.width, 0, 0)
-                actionTwo.setImage(UIImage(named: "pause_button"), for: .normal)
                 
                 actionOne.setImage(UIImage(named: "start_button"), for: .normal)
             }
-        } else if !countdownTimer.isOn {
-            //cancel
         }
     }
-    
-    
-//    @IBAction func startButtonTapped(_ sender: AnyObject) {
-//        if !countdownTimer.isOn {
-//        	startTimer()
-//        } else if countdownTimer.isOn {
-//            countdownTimer.pauseTimer()
-//            startButton.setTitle("resume", for: .normal)
-//        }
-//    }
-//
-//    
-//    @IBAction func cancelButtonTapped(_ sender: AnyObject) {
-//        if countdownTimer.isOn {
-//            countdownTimer.stopTimer()
-//            switchToPickerView()
-//        }
-//    }
+
     
     
     //MARK: PickerView Protocol Methods
