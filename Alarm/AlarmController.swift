@@ -18,24 +18,27 @@ protocol AlarmScheduler {
 
 class AlarmController {
     
-    private let kAlarms = "Alarms"
-    
-    //MARK: Singleton
+    //private let kAlarms = "Alarms"
     static let shareController = AlarmController()
     
     
     //MARK: Properties
-    var alarmArray: [Alarm]
+    var alarmArray: [Alarm] = []
     
+    static var persistentAlarmFilesPath: String? {
+        let directories = NSSearchPathForDirectoriesInDomains(.documentDirectory, .allDomainsMask, true)
+        guard let documentsDirectory = directories.first as NSString? else {return nil}
+        
+        return documentsDirectory.appendingPathComponent("Alarm.plist")
+    }
     
     //MARK: Init
     init() {
-        alarmArray = []
         loadFromPersistantStorage()
     }
     
     
-    //MARK: Helper Functions
+    //MARK: Builder Functions
     func addAlarm(_ name: String, fireTimeFromMidnight: TimeInterval) {
     	let alarm = Alarm(name: name, fireTimeFromMidnight: fireTimeFromMidnight)
         alarmArray.append(alarm)
@@ -67,26 +70,31 @@ class AlarmController {
     
     
     //MARK: NSCoding
-    
-    func saveToPersistantStorage() {
-        NSKeyedArchiver.archiveRootObject(self.alarmArray, toFile: self.filePath(key: kAlarms))
+	func saveToPersistantStorage() {
+        //NSKeyedArchiver.archiveRootObject(self.kAlarms, toFile: self.filePath(key: kAlarms))
+        guard let filePath = type(of: self).persistentAlarmFilesPath else {return}
+        NSKeyedArchiver.archiveRootObject(self.alarmArray, toFile: filePath)
     }
     
     func loadFromPersistantStorage() {
-        let unarchivedAlarms = NSKeyedUnarchiver.unarchiveObject(withFile: self.filePath(key: kAlarms))
+        //guard let unarchivedAlarms = NSKeyedUnarchiver.unarchiveObject(withFile: self.filePath(key: kAlarms)) else {return}
+        //self.alarmArray = unarchivedAlarms as! [Alarm]
         
-        if let alarm = unarchivedAlarms as? [Alarm] {
-            self.alarmArray = alarm
-        }
+        guard let filePath = type(of: self).persistentAlarmFilesPath else {return}
+        guard let alarms = NSKeyedUnarchiver.unarchiveObject(withFile: filePath) as? [Alarm] else {return}
+        self.alarmArray = alarms
     }
     
+    /*
     func filePath(key: String) -> String {
-        let directorySearchResults = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true)
-        let documentPath: AnyObject = directorySearchResults[0] as AnyObject
-        let alarmPath = documentPath.appending("/\(key).plist")
+        let manager = FileManager.default
+        let url = manager.urls(for: .documentDirectory, in: .allDomainsMask).first
         
-        return alarmPath
+        return (url?.appendingPathComponent(key).path)!
     }
+ 	*/
+    
+    
     
 }
 
