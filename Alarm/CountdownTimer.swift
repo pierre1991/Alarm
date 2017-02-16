@@ -66,6 +66,8 @@ class CountdownTimer: NSObject {
     func startTimer() {
         if !isOn {
             countdownTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(CountdownTimer.secondTick), userInfo: nil, repeats: true)
+        } else if isOn {
+            countdownTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(CountdownTimer.secondTick), userInfo: nil, repeats: true)
         }
     }
     
