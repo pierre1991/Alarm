@@ -21,6 +21,8 @@ class AlarmListTableViewController: UIViewController {
 	//MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -55,7 +57,8 @@ class AlarmListTableViewController: UIViewController {
 
         if segue.identifier == "toDetailView" {
             guard let indexPath = tableView.indexPathForSelectedRow else {return}
-            let alarm = AlarmController.shareController.alarmArray[(indexPath as NSIndexPath).row]
+            
+            let alarm = AlarmController.shareController.alarmArray[indexPath.row]
             destinationViewController?.alarm = alarm
         }
     }
