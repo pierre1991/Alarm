@@ -48,7 +48,7 @@ class NotificationManager: NSObject {
         
 		center.add(request) { (error) in
             if error != nil {
-                print(error)
+                print(error ?? "")
                 completion(false)
             } else {
                 completion(true)
